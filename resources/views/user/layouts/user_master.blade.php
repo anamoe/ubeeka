@@ -204,7 +204,7 @@
                                 <a href="">
                                     <div class="card move-on-hover col-md-12">
                                         <div class="text-center">
-                                            <img class="w-30" src="{{asset('public/image/icon/box-car.png')}}" alt="">
+                                            <img class="w-30" src="{{asset('public/image/logistik.jpeg')}}" alt="">
                                         </div>
                                     </div>
                                     <div class="mt-2 ms-2">
