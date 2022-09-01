@@ -14,7 +14,8 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form">
+                    <form action="{{url('simpan_produk')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
@@ -25,17 +26,21 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="">Deskripsi Singkat</label>
+                                        <label for="">Kandungan</label>
                                         <input required type="text" id="deskripsi_singkat" class="form-control"
-                                            placeholder="Deskripsi Singkat" name="deskripsi_singkat">
+                                            placeholder="Kandungan" name="kandungan">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="">Kategori</label>
-                                        <select required type="text" class="form-control" name="kategori" id="kategori">
-                                            <option value="">--Pilih Kategori--</option>
-                                            <option value="">Kategori 1</option>
+                                        <select required type="text" class="form-control" name="kategori_id" id="kategori_id">
+                                        <option value="" selected disabled>--Pilih Kategori--</option>
+                                            @foreach ($kategori as $v)
+                                            <option name="kategori_id" value="{{$v->id}}">{{ $v->kategori }}</option>
+                                            @endforeach
+                               
+                                   
                                         </select>
                                     </div>
                                 </div>
@@ -43,14 +48,14 @@
                                     <div class="form-group">
                                         <label for="status">Status</label> <br>
                                         <div class="form-check form-check-inline">
-                                            <input required class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio1" value="option1">
+                                            <input required class="form-check-input" type="radio" name="status"
+                                                id="inlineRadio1" value="tampilkan">
                                             <label class="form-check-label" for="inlineRadio1">Tampilkan</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input required class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">Draft</label>
+                                            <input required class="form-check-input" type="radio" name="status"
+                                                id="inlineRadio2" value="tidak">
+                                            <label class="form-check-label" for="inlineRadio2">Tidak Ditampilkan</label>
                                         </div>
                                     </div>
 
@@ -90,9 +95,9 @@
                                 </div>
                                 <div class="col-md-12 col-12">
                                     <div class="form-group">
-                                        <label for="deskripsi_lengkap">Deskripsi Lengkap Produk</label>
-                                        <textarea required type="text" id="deskripsi_lengkap" class="form-control"
-                                            name="deskripsi_lengkap" placeholder="Deskripsi"></textarea>
+                                        <label for="deskripsi">Deskripsi Lengkap Produk</label>
+                                        <textarea required type="text" id="deskripsi" class="form-control"
+                                            name="deskripsi" placeholder="Deskripsi"></textarea>
                                     </div>
                                 </div>
                                 

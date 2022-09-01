@@ -72,10 +72,26 @@
     </script>
 
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <script src="{{asset('public/admin/js/swal.js')}}"></script>  
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
+
+    </script>
+     <script type="text/javascript">
+    $(document).ready(function() {
+
+        @if(session()->has('message'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: "{{session()->get('message')}}",
+        })
+        @endif
+
+
+    });
 
     </script>
 </body>

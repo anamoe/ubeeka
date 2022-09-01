@@ -23,6 +23,9 @@ class CreateProduksTable extends Migration
             $table->string('harga');
             $table->string('foto_produk');
             $table->string('foto_produk2')->nullable();
+            $table->string('deskripsi')->nullable();
+            $table->string('status')->nullable();
+            $table->string('diskon')->nullable();
             $table->unsignedBigInteger('kategori_id')->nullable();
 
             $table->foreign('kategori_id')

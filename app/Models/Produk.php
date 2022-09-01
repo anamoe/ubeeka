@@ -16,6 +16,6 @@ class Produk extends Model
         'harga',
         'foto_produk',
         'foto_produk2',
-        'kategori_id'
+        'kategori_id','diskon','status','deskripsi'
     ];
 }

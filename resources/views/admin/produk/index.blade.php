@@ -12,144 +12,44 @@
         </div>
         <div class="card-body">
             <div class="table-responsive mt-2">
+
                 <div class="form-group col-md-4">
                     <select type="text" class="form-control" name="" id="">
                         <option value="">--Pilih Kategori--</option>
-                        <option value="">Kategori 1</option>
-                        <option value="">Kategori 2</option>
+                        @foreach ($kategori as $v)
+                        <option name="kategori_id" value="{{$v->id}}">{{ $v->kategori }}</option>
+                        @endforeach
+
                     </select>
                 </div>
                 <div class="row">
+                    @foreach($data as $v)
                     <div class="col-sm-3">
                         <div class="card">
                             <div class="card-header text-right">
-                                <a href="{{route('edit_produk')}}" class="mr-2" data-placement="bottom" title="Edit"><span class="fa fa-pencil" style="color:black"></span></a>
-                                <a href="#" class="ml-1" data-toggle="modal" data-target="#DeleteModal" data-placement="bottom" title="Hapus"
-                                                onclick="">
+                                <a href="{{route('edit_produk',$v->id)}}" class="mr-2" data-placement="bottom" title="Edit"><span class="fa fa-pencil" style="color:black"></span></a>
+                                <a href="#" class="ml-1" data-toggle="modal" data-target="#DeleteModal" data-placement="bottom" title="Hapus" onclick="">
                                     <span class="fa fa-trash" style="color:black"></span></a>
                                 <!-- <button>x</button> -->
                             </div>
                             <div class="divider"></div>
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="{{asset('public/image/logo_ubeka.png')}}" class="w-50" alt="" srcset="">
+                                    <img src="{{asset('public/admin/produk/'.$v->foto_produk)}}" class="w-50" alt="" srcset="">
                                 </div>
-                                <h5 class="card-title">Nama Produk</h5>
-                                <p class="card-text">Deskripsi</p>
+                                <h5 class="card-title">{{$v->nama_produk}}</h5>
+                                <p class="card-text">{{$v->deskripsi}}</p>
                                 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                             </div>
                             <div class="card-footer">
-                                <p class="card-text">Rp. ...</p>
+                                <p class="card-text">Rp.{{$v->harga}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <div class="card-header text-right">
-                                <a href="#" class="mr-2"><span class="fa fa-pencil" style="color:black"></span></a>
-                                <a href="#" class="ml-1"><span class="fa fa-trash" style="color:black"></span></a>
-                                <!-- <button>x</button> -->
-                            </div>
-                            <div class="divider"></div>
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="{{asset('public/image/logo_ubeka.png')}}" class="w-50" alt="" srcset="">
-                                </div>
-                                <h5 class="card-title">Nama Produk</h5>
-                                <p class="card-text">Deskripsi</p>
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            </div>
-                            <div class="card-footer">
-                                <p class="card-text">Rp. ...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <div class="card-header text-right">
-                                <a href="#" class="mr-2"><span class="fa fa-pencil" style="color:black"></span></a>
-                                <a href="#" class="ml-1"><span class="fa fa-trash" style="color:black"></span></a>
-                                <!-- <button>x</button> -->
-                            </div>
-                            <div class="divider"></div>
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="{{asset('public/image/logo_ubeka.png')}}" class="w-50" alt="" srcset="">
-                                </div>
-                                <h5 class="card-title">Nama Produk</h5>
-                                <p class="card-text">Deskripsi</p>
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            </div>
-                            <div class="card-footer">
-                                <p class="card-text">Rp. ...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <div class="card-header text-right">
-                                <a href="#" class="mr-2"><span class="fa fa-pencil" style="color:black"></span></a>
-                                <a href="#" class="ml-1"><span class="fa fa-trash" style="color:black"></span></a>
-                                <!-- <button>x</button> -->
-                            </div>
-                            <div class="divider"></div>
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="{{asset('public/image/logo_ubeka.png')}}" class="w-50" alt="" srcset="">
-                                </div>
-                                <h5 class="card-title">Nama Produk</h5>
-                                <p class="card-text">Deskripsi</p>
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            </div>
-                            <div class="card-footer">
-                                <p class="card-text">Rp. ...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <div class="card-header text-right">
-                                <a href="#" class="mr-2"><span class="fa fa-pencil" style="color:black"></span></a>
-                                <a href="#" class="ml-1"><span class="fa fa-trash" style="color:black"></span></a>
-                                <!-- <button>x</button> -->
-                            </div>
-                            <div class="divider"></div>
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="{{asset('public/image/logo_ubeka.png')}}" class="w-50" alt="" srcset="">
-                                </div>
-                                <h5 class="card-title">Nama Produk</h5>
-                                <p class="card-text">Deskripsi</p>
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            </div>
-                            <div class="card-footer">
-                                <p class="card-text">Rp. ...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <div class="card-header text-right">
-                                <a href="#" class="mr-2"><span class="fa fa-pencil" style="color:black"></span></a>
-                                <a href="#" class="ml-1"><span class="fa fa-trash" style="color:black"></span></a>
-                                <!-- <button>x</button> -->
-                            </div>
-                            <div class="divider"></div>
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="{{asset('public/image/logo_ubeka.png')}}" class="w-50" alt="" srcset="">
-                                </div>
-                                <h5 class="card-title">Nama Produk</h5>
-                                <p class="card-text">Deskripsi</p>
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            </div>
-                            <div class="card-footer">
-                                <p class="card-text">Rp. ...</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
+                    @endforeach
+
+
+
                 </div>
             </div>
         </div>
@@ -174,8 +74,7 @@
                     {{ method_field('POST') }}
                     <p>Apakah anda yakin ingin Menghapus data ini ?</p>
                     <!-- <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Batal</button> -->
-                    <button type="submit" name="" class="btn btn-danger float-right mr-2" data-dismiss="modal"
-                        onclick="formSubmit()">Hapus</button>
+                    <button type="submit" name="" class="btn btn-danger float-right mr-2" data-dismiss="modal" onclick="formSubmit()">Hapus</button>
                 </div>
             </div>
         </form>

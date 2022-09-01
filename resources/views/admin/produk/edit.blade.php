@@ -14,28 +14,34 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form">
+                    <form action="{{url('update_produk',$id)}}" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="first-name-column">Nama Produk</label>
                                         <input required type="text" id="nama_produk" class="form-control"
-                                            placeholder="Nama Produk" name="nama_produk">
+                                            placeholder="Nama Produk" name="nama_produk" value="{{$data->nama_produk}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="">Deskripsi Singkat</label>
-                                        <input required type="text" id="deskripsi_singkat" class="form-control"
-                                            placeholder="Deskripsi Singkat" name="deskripsi_singkat">
+                                        <label for="">Kandungan</label>
+                                        <input required type="text" id="kandungan" class="form-control"
+                                            placeholder="kandungan" name="kandungan" value="{{$data->kandungan}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="">Kategori</label>
                                         <select required type="text" class="form-control" name="kategori" id="kategori">
-                                            <option value="">--Pilih Kategori--</option>
-                                            <option value="">Kategori 1</option>
+                                            <!-- <option value="">--Pilih Kategori--</option> -->
+                                            @foreach ($kategori as $v)
+      
+                                            
+                                            <option value="{{$v->id}}" {{(old('kategori')==$data->kategori_id)? 'selected':''}}>{{$v->kategori}}</option>
+                                            @endforeach
+                               
+                                           
                                         </select>
                                     </div>
                                 </div>
@@ -43,14 +49,14 @@
                                     <div class="form-group">
                                         <label for="status">Status</label> <br>
                                         <div class="form-check form-check-inline">
-                                            <input required class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio1" value="option1">
-                                            <label class="form-check-label" for="inlineRadio1">Tampilkan</label>
+                                            <input required class="form-check-input" type="radio" name="status"
+                                                id="inlineRadio1" value="tampilkan" {{$data->status == 'tampilkan'? 'checked' : ''}}>
+                                            <label class="form-check-label"  for="inlineRadio1">Tampilkan</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input required class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">Draft</label>
+                                            <input required class="form-check-input" type="radio" name="status"
+                                                id="inlineRadio2" value="tidak" {{$data->status == 'tidak'? 'checked' : ''}}>
+                                            <label class="form-check-label" for="inlineRadio2">Tidak Ditampilkan</label>
                                         </div>
                                     </div>
 
@@ -58,41 +64,42 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="harga">Harga</label>
-                                        <input required type="number" id="harga" class="form-control" name="harga"
+                                        <input required type="number" id="harga" class="form-control" name="harga" value="{{$data->harga}}"
                                             placeholder="Harga">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="diskon">Diskon (Opsional)</label>
-                                        <input type="text" id="diskon" class="form-control"
+                                        <input type="text" id="diskon" class="form-control" value="{{$data->diskon}}"
                                             name="diskon" placeholder="Diskon">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="stok">Stok Produk</label>
-                                        <input type="number" id="stok" class="form-control"
+                                        <input type="number" id="stok" class="form-control"value="{{$data->stok}}"
                                             name="stok" placeholder="Stok">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="">Gambar Produk 1</label>
-                                        <input required class="form-control" type="file" name="foto1" id="foto1">
+                                        <input required class="form-control" type="file" name="foto1" id="foto1"src="{{asset('public/admin/produk/'.$v->foto_produk)}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="">Gambar Produk 2</label>
-                                        <input required class="form-control" type="file" name="foto2" id="foto2">
+                                        <input required class="form-control" type="file" name="foto2" id="foto2"src="{{asset('public/admin/produk/'.$v->foto_produk2)}}">
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-12">
                                     <div class="form-group">
-                                        <label for="deskripsi_lengkap">Deskripsi Lengkap Produk</label>
-                                        <textarea required type="text" id="deskripsi_lengkap" class="form-control"
-                                            name="deskripsi_lengkap" placeholder="Deskripsi"></textarea>
+                                        <label for="deskripsi">Deskripsi Lengkap Produk</label>
+                                        <textarea required type="text" id="deskripsi" class="form-control" value="{{$data->deskripsi}}"
+                                            name="deskripsi" placeholder="Deskripsi">{{$data->deskripsi}}</textarea>
                                     </div>
                                 </div>
                                 
