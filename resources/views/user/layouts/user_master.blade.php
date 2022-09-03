@@ -1,124 +1,78 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <title>Ubeeka</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
 
-    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 
-    <title>
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-        UBEEKA
+    <!-- Libraries Stylesheet -->
+    <link href="{{asset('public/landing_page/lib/animate/animate.min.css')}}" rel="stylesheet">
+    <link href="{{asset('public/landing_page/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 
-    </title>
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{asset('public/landing_page/css/bootstrap.min.css')}}" rel="stylesheet">
 
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-
-    <!-- Nucleo Icons -->
-    <link href="{{asset('public/landing_page/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
-    <link href="{{asset('public/landing_page/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
-
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-
-    <!-- CSS Files -->
-
-
-
-    <link id="pagestyle" href="{{asset('public/landing_page/assets/css/material-kit.css?v=3.0.4')}}" rel="stylesheet" />
+    <!-- Template Stylesheet -->
+    <link href="{{asset('public/landing_page/css/style.css')}}" rel="stylesheet">
 </head>
 
-<body class="index-page bg-gray-200">
+<body>
 
-
-    <!-- Navbar -->
-    @include('user.layouts.user_nav')
-
-
-    @include('user.layouts.user_top')
-
-    
-
-    <div class="card card-body blur shadow-blur mx-3 mx-md-8 mt-3 ">
-
-        @yield('content')
-
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
     </div>
+    <!-- Spinner End -->
 
 
+    <!-- Navbar Start -->
+    @include('user.layouts.user_nav')
+    <!-- Navbar End -->
+
+
+    <!-- Carousel Start -->
+    @yield('content')
+   
+    <!-- Testimonial End -->
+
+
+    <!-- Footer Start -->
     @include('user.layouts.user_footer')
+    <!-- Footer End -->
 
 
-    <!--   Core JS Files   -->
-    <script src="{{asset('public/landing_page/assets/js/core/popper.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('public/landing_page/assets/js/core/bootstrap.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('public/landing_page/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
-    <!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
-    <script src="{{asset('public/landing_page/assets/js/plugins/countup.min.js')}}"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('public/landing_page/lib/wow/wow.min.js')}}"></script>
+    <script src="{{asset('public/landing_page/lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('public/landing_page/lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{asset('public/landing_page/lib/counterup/counterup.min.js')}}"></script>
+    <script src="{{asset('public/landing_page/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
-    <script src="{{asset('public/landing_page/assets/js/plugins/choices.min.js')}}"></script>
-
-    <script src="{{asset('public/landing_page//assets/js/plugins/prism.min.js')}}"></script>
-    <script src="{{asset('public/landing_page//assets/js/plugins/highlight.min.js')}}"></script>
-
-
-
-    <!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
-    <script src="{{asset('public/landing_page//assets/js/plugins/rellax.min.js')}}"></script>
-    <!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
-    <script src="{{asset('public/landing_page//assets/js/plugins/tilt.min.js')}}"></script>
-    <!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
-    <script src="{{asset('public/landing_page//assets/js/plugins/choices.min.js')}}"></script>
-
-
-    <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
-    <script src="{{asset('public/landing_page//assets/js/plugins/parallax.min.js')}}"></script>
-    <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
-    <!--  Google Maps Plugin    -->
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
-    <script src="{{asset('public/landing_page//assets/js/material-kit.min.js?v=3.0.4')}}" type="text/javascript">
-    </script>
-
-
-    <script type="text/javascript">
-        if (document.getElementById('state1')) {
-            const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
-        if (document.getElementById('state2')) {
-            const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
-            if (!countUp1.error) {
-                countUp1.start();
-            } else {
-                console.error(countUp1.error);
-            }
-        }
-        if (document.getElementById('state3')) {
-            const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
-            if (!countUp2.error) {
-                countUp2.start();
-            } else {
-                console.error(countUp2.error);
-            };
-        }
-
-    </script>
-
+    <!-- Template Javascript -->
+    <script src="{{asset('public/landing_page/js/main.js')}}"></script>
 </body>
 
 </html>

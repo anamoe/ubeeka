@@ -1,30 +1,39 @@
-<div class="sidebar-menu">
-    <ul class="menu">
-        <!-- <li class='sidebar-title'>Main Menu</li> -->
-        <li class="sidebar-item {{ Request::segment(1) === 'admin_home' ? 'active' : null }}">
+<aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
 
-            <a href="{{route('admin_home')}}" class='sidebar-link'>
-                <i data-feather="home" width="20"></i>
-                <span class="h6 mt-2">Beranda</span>
-            </a>
-        </li>
-        <li class="sidebar-item has-sub {{ Request::segment(1) === 'produk' ? 'active' : null }}">
-            <a href="#" class='sidebar-link '>
-                <i data-feather="briefcase" width="20"></i>
-                <span class="h6 mt-2">Data Produk</span>
-            </a>
-            <ul class="submenu ">
-                <li>
-                    <a href="{{route('produk')}}">
-                    <span class="h6">Produk</span>    
-                    </a>
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu"
+                aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="#"> Ubeeka Admin</a>
+            <a class="navbar-brand hidden" href="./"></a>
+        </div>
+
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="{{ Request::segment(1) === 'admin_home' ? 'active' : null }}">
+                    <a href="{{route('admin_home')}}"> <i class="menu-icon fa fa-dashboard"></i>Beranda </a>
                 </li>
-                <!-- <li>
-                    <a href="">
-                        <span class="h6">Pesanan</span> 
-                    </a>
-                </li> -->
+                <h3 class="menu-title">Menu</h3><!-- /.menu-title -->
+                <li class="menu-item-has-children dropdown {{ Request::segment(1) === 'produk' ? 'active' : null }}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Data Produk</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-puzzle-piece"></i><a href="{{route('produk')}}">Produk</a></li>
+                        <!-- <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
+                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Tabs</a></li>
+                            <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">Social Buttons</a></li>
+                            <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">Cards</a></li>
+                            <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">Alerts</a></li>
+                            <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">Progress Bars</a></li>
+                            <li><i class="fa fa-fire"></i><a href="ui-modals.html">Modals</a></li>
+                            <li><i class="fa fa-book"></i><a href="ui-switches.html">Switches</a></li>
+                            <li><i class="fa fa-th"></i><a href="ui-grids.html">Grids</a></li>
+                            <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li> -->
+                    </ul>
+                </li>
             </ul>
-        </li>
-    </ul>
-</div>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</aside><!-- /#left-panel -->

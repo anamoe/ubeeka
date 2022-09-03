@@ -1,12 +1,12 @@
 @extends('admin.layouts.admin_master')
 
+@section('title')
+Edit Data Produk
+@endsection
+
 @section('content')
-<div class="page-title">
-    <h3>Edit Data Produk</h3>
-    <!-- <p class="text-subtitle text-muted">A good dashboard to display your statistics</p> -->
-</div>
-<section id="multiple-column-form">
-    <div class="row match-height">
+<div class="content mt-3">
+    <div class="animated fadeIn">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
@@ -36,9 +36,7 @@
                                         <select required type="text" class="form-control" name="kategori" id="kategori">
                                             <!-- <option value="">--Pilih Kategori--</option> -->
                                             @foreach ($kategori as $v)
-      
-                                            
-                                            <option value="{{$v->id}}" {{(old('kategori')==$data->kategori_id)? 'selected':''}}>{{$v->kategori}}</option>
+                                            <option value="{{$v->id}}" {{($v->id==$data->kategori_id)? 'selected':''}}>{{$v->kategori}}</option>
                                             @endforeach
                                
                                            
@@ -85,13 +83,13 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="">Gambar Produk 1</label>
-                                        <input required class="form-control" type="file" name="foto1" id="foto1"src="{{asset('public/admin/produk/'.$v->foto_produk)}}">
+                                        <input class="form-control" type="file" name="foto1" id="foto1"src="{{asset('public/admin/produk/'.$v->foto_produk)}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="">Gambar Produk 2</label>
-                                        <input required class="form-control" type="file" name="foto2" id="foto2"src="{{asset('public/admin/produk/'.$v->foto_produk2)}}">
+                                        <input class="form-control" type="file" name="foto2" id="foto2"src="{{asset('public/admin/produk/'.$v->foto_produk2)}}">
                                         
                                     </div>
                                 </div>
@@ -115,5 +113,5 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 @endsection

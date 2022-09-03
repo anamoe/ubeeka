@@ -8,6 +8,7 @@ use App\Models\Produk;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Blade;
 
 class ProdukController extends Controller
 {
@@ -23,7 +24,7 @@ class ProdukController extends Controller
         ->join('kategori_produks','produks.kategori_id','kategori_produks.id')
         ->select('kategori_produks.*','produks.*')
         ->orderBy('kategori','asc')->get();
-
+        Blade::directive('currency', function ( $expression ) { return "Rp. <?php echo number_format($expression,0,',','.'); ?>"; });
         // return $data;
         return view('admin.produk.index',compact('data','kategori'));
     }
