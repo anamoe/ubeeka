@@ -1,87 +1,97 @@
 @extends('admin.layouts.admin_master')
 
+@section('title')
+Produk
+@endsection
+
 @section('content')
-<div class="page-title">
-    <h3>Produk</h3>
-    <!-- <p class="text-subtitle text-muted">A good dashboard to display your statistics</p> -->
-</div>
-<section class="section">
-    <div class="card">
-        <div class="card-header text-right">
-            <a href="{{route('tambah_produk')}}" class="btn btn-primary"><span class="fa fa-plus"></span> Tambah</a>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive mt-2">
 
-                <div class="form-group col-md-4">
-                    <select type="text" class="form-control" name="" id="">
-                        <option value="">--Pilih Kategori--</option>
-                        @foreach ($kategori as $v)
-                        <option name="kategori_id" value="{{$v->id}}">{{ $v->kategori }}</option>
-                        @endforeach
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
 
-                    </select>
-                </div>
-                <div class="row">
-                    @foreach($data as $v)
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <div class="card-header text-right">
-                                <a href="{{route('edit_produk',$v->id)}}" class="mr-2" data-placement="bottom" title="Edit"><span class="fa fa-pencil" style="color:black"></span></a>
-                                <a href="#" class="ml-1" data-toggle="modal" data-target="#DeleteModal" data-placement="bottom" title="Hapus" onclick="">
-                                    <span class="fa fa-trash" style="color:black"></span></a>
-                                <!-- <button>x</button> -->
-                            </div>
-                            <div class="divider"></div>
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="{{asset('public/admin/produk/'.$v->foto_produk)}}" class="w-50" alt="" srcset="">
-                                </div>
-                                <h5 class="card-title">{{$v->nama_produk}}</h5>
-                                <p class="card-text">{{$v->deskripsi}}</p>
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            </div>
-                            <div class="card-footer">
-                                <p class="card-text">Rp.{{$v->harga}}</p>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header text-right">
+                        <a href="{{route('tambah_produk')}}" class="btn btn-primary"><span class="fa fa-plus"></span>
+                            Tambah</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-md-12 mb-2">
+                            <div class="form-group col-md-3">
+                                <select type="text" class="form-control" name="" id="">
+                                    <option value="">--Pilih Kategori--</option>
+                                    @foreach ($kategori as $v)
+                                    <option name="kategori_id" value="{{$v->id}}">{{ $v->kategori }}</option>
+                                    @endforeach
+
+                                </select>
                             </div>
                         </div>
+
+                        <div class="row">
+                            @foreach($data as $v)
+                            <div class="col-sm-3">
+                                <div class="card">
+                                    <div class="card-header text-right">
+                                        <a href="{{route('edit_produk',$v->id)}}" class="mr-2" data-placement="bottom"
+                                            title="Edit"><span class="fa fa-pencil" style="color:black"></span></a>
+                                        <a href="#" class="ml-1" data-toggle="modal" data-target="#DeleteModal"
+                                            data-placement="bottom" title="Hapus" onclick="">
+                                            <span class="fa fa-trash" style="color:black"></span></a>
+                                        <!-- <button>x</button> -->
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <img src="{{asset('public/admin/produk/'.$v->foto_produk)}}" class="w-50"
+                                                alt="" srcset="">
+                                        </div>
+                                        <h5 class="card-title">{{$v->nama_produk}}</h5>
+                                        <p class="card-text">{{$v->deskripsi}}</p>
+                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="card-text">@currency($v->harga)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
-                    @endforeach
-
-
-
                 </div>
+
+
             </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+    <div id="DeleteModal" class="modal fade" role="dialog">
+        <div class="modal-dialog ">
+            <!-- Modal content-->
+            <form action="" id="deleteForm" method="post">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Hapus data ini?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {{ csrf_field() }}
+                        {{ method_field('POST') }}
+                        <p>Apakah anda yakin ingin Menghapus data ini ?</p>
+                        <!-- <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Batal</button> -->
+                        <button type="submit" name="" class="btn btn-danger float-right mr-2" data-dismiss="modal"
+                            onclick="formSubmit()">Hapus</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
-</section>
-
-<div id="DeleteModal" class="modal fade" role="dialog">
-    <div class="modal-dialog ">
-        <!-- Modal content-->
-        <form action="" id="deleteForm" method="post">
-
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Hapus data ini?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    {{ csrf_field() }}
-                    {{ method_field('POST') }}
-                    <p>Apakah anda yakin ingin Menghapus data ini ?</p>
-                    <!-- <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Batal</button> -->
-                    <button type="submit" name="" class="btn btn-danger float-right mr-2" data-dismiss="modal" onclick="formSubmit()">Hapus</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- <script type="text/javascript">
+    <!-- <script type="text/javascript">
     function deleteData(id) {
         var id = id;
         var url = '';
@@ -95,4 +105,4 @@
 
 </script> -->
 
-@endsection
+    @endsection

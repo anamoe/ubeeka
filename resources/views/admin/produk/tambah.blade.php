@@ -1,12 +1,13 @@
 @extends('admin.layouts.admin_master')
 
+@section('title')
+Tambah Data Produk
+@endsection
+
 @section('content')
-<div class="page-title">
-    <h3>Tambah Data Produk</h3>
-    <!-- <p class="text-subtitle text-muted">A good dashboard to display your statistics</p> -->
-</div>
-<section id="multiple-column-form">
-    <div class="row match-height">
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
@@ -14,8 +15,8 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                    <form action="{{url('simpan_produk')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
+                        <form action="{{url('simpan_produk')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
@@ -34,13 +35,14 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="">Kategori</label>
-                                        <select required type="text" class="form-control" name="kategori_id" id="kategori_id">
-                                        <option value="" selected disabled>--Pilih Kategori--</option>
+                                        <select required type="text" class="form-control" name="kategori_id"
+                                            id="kategori_id">
+                                            <option value="" selected disabled>--Pilih Kategori--</option>
                                             @foreach ($kategori as $v)
                                             <option name="kategori_id" value="{{$v->id}}">{{ $v->kategori }}</option>
                                             @endforeach
-                               
-                                   
+
+
                                         </select>
                                     </div>
                                 </div>
@@ -70,15 +72,15 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="diskon">Diskon (Opsional)</label>
-                                        <input type="text" id="diskon" class="form-control"
-                                            name="diskon" placeholder="Diskon">
+                                        <input type="text" id="diskon" class="form-control" name="diskon"
+                                            placeholder="Diskon">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="stok">Stok Produk</label>
-                                        <input type="number" id="stok" class="form-control"
-                                            name="stok" placeholder="Stok">
+                                        <input type="number" id="stok" class="form-control" name="stok"
+                                            placeholder="Stok">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
@@ -100,7 +102,7 @@
                                             name="deskripsi" placeholder="Deskripsi"></textarea>
                                     </div>
                                 </div>
-                                
+
 
                                 <div class="col-12 d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
@@ -113,5 +115,5 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 @endsection

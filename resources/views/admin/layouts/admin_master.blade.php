@@ -1,97 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UBEEKA</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ubeeka</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="{{asset('public/admin/assets/css/bootstrap.css')}}">
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
 
-    <link rel="stylesheet" href="{{asset('public/admin/assets/vendors/chartjs/Chart.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/admin/vendors/bootstrap/dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/admin/vendors/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/admin/vendors/themify-icons/css/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('public/admin/vendors/flag-icon-css/css/flag-icon.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/admin/vendors/selectFX/css/cs-skin-elastic.css')}}">
+    <link rel="stylesheet" href="{{asset('public/admin/vendors/jqvmap/dist/jqvmap.min.css')}}">
 
-    <link rel="stylesheet" href="{{asset('public/admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
-    <link rel="stylesheet" href="{{asset('public/admin/assets/css/app.css')}}">
-    <link rel="shortcut icon" href="{{asset('public/admin/assets/images/favicon.svg" type="image/x-icon')}}">
 
-    <link rel="stylesheet" href="{{asset('public/admin/fa/css/all.css')}}">
-    <link rel="stylesheet" href="{{asset('public/admin/fa/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/admin/assets/css/style.css')}}">
 
-    <script src="{{asset('public/admin/fa/js/all.js')}}"></script>
-    <script src="{{asset('public/admin/fa/js/all.min.js')}}"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
 </head>
 
 <body>
-    <div id="app">
-        <div id="sidebar" class='active'>
-            <div class="sidebar-wrapper active">
-                <div class="text-center mt-3">
-                    <img src="{{asset('public/image/logo_ubeka.png')}}" class="rounded-circle" width="125" height="auto"
-                        alt="" srcset="">
+
+
+    <!-- Left Panel -->
+
+    @include('admin.layouts.admin_nav')
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        @include('admin.layouts.admin_top')
+        <!-- Header-->
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>@yield('title')</h1>
+                    </div>
                 </div>
-
-                @include('admin.layouts.admin_nav')
-
-                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
+            <!-- <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">@yield('title')</li>
+                        </ol>
+                    </div>
+                </div>
+            </div> -->
         </div>
-        <div id="main">
 
-            @include('admin.layouts.admin_top')
+        @yield('content')
+    </div><!-- /#right-panel -->
 
-            <div class="main-content container-fluid">
-               @yield('content') 
-            </div>
+    <!-- Right Panel -->
 
-            @include('admin.layouts.admin_footer')
-        </div>
-    </div>
-    <script src="{{asset('public/admin/assets/js/feather-icons/feather.min.js')}}"></script>
-    <script src="{{asset('public/admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
-    <script src="{{asset('public/admin/assets/js/app.js')}}"></script>
-
-    <script src="{{asset('public/admin/assets/vendors/chartjs/Chart.min.js')}}"></script>
-    <script src="{{asset('public/admin/assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
-    <script src="{{asset('public/admin/assets/js/pages/dashboard.js')}}"></script>
-
+    <script src="{{asset('public/admin/vendors/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('public/admin/vendors/popper.js/dist/umd/popper.min.js')}}"></script>
+    <script src="{{asset('public/admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('public/admin/assets/js/main.js')}}"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-        
-    </script>
 
-    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-    <script src="{{asset('public/admin/js/swal.js')}}"></script>  
+
+    <script src="{{asset('public/admin/vendors/chart.js/dist/Chart.bundle.min.js')}}"></script>
+    <script src="{{asset('public/admin/assets/js/dashboard.js')}}"></script>
+    <script src="{{asset('public/admin/assets/js/widgets.js')}}"></script>
+    <script src="{{asset('public/admin/vendors/jqvmap/dist/jquery.vmap.min.js')}}"></script>
+    <script src="{{asset('public/admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
+    <script src="{{asset('public/admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
     <script>
-        $(document).ready(function () {
-            $('#myTable').DataTable();
+        (function ($) {
+            "use strict";
+
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: null,
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#1de9b6',
+                enableZoom: true,
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#1de9b6', '#03a9f5'],
+                normalizeFunction: 'polynomial'
+            });
+        })(jQuery);
+
+    </script>
+    <script>
+        $('#menuToggle').on('click', function (event) {
+            $('body').toggleClass('open');
         });
 
     </script>
-     <script type="text/javascript">
-    $(document).ready(function() {
 
-        @if(session()->has('message'))
-        Swal.fire({
-            icon: 'success',
-            title: 'Berhasil',
-            text: "{{session()->get('message')}}",
-        })
-        @endif
+    <script>
+        $('.search-trigger').on('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $('.search-trigger').parent('.header-left').addClass('open');
+        });
 
-
-    });
+        $('.search-close').on('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $('.search-trigger').parent('.header-left').removeClass('open');
+        });
 
     </script>
 </body>
