@@ -157,7 +157,7 @@
                     </div>
                     <h4 class="mb-3">Produk 1</h4>
                     <p>Produk bla bla</p>
-                    <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Detail</span></a>
+                    <a class="btn-slide mt-2" href="{{route('user_detail_produk')}}"><i class="fa fa-arrow-right"></i><span>Detail</span></a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
