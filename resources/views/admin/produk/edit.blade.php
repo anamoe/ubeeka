@@ -15,6 +15,7 @@ Edit Data Produk
                 <div class="card-content">
                     <div class="card-body">
                     <form action="{{url('update_produk',$id)}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
@@ -33,7 +34,7 @@ Edit Data Produk
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="">Kategori</label>
-                                        <select required type="text" class="form-control" name="kategori" id="kategori">
+                                        <select required type="text" class="form-control" name="kategori_id" id="kategori">
                                             <!-- <option value="">--Pilih Kategori--</option> -->
                                             @foreach ($kategori as $v)
                                             <option value="{{$v->id}}" {{($v->id==$data->kategori_id)? 'selected':''}}>{{$v->kategori}}</option>

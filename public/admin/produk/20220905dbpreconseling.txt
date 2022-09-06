@@ -1,0 +1,23 @@
+iki dijenengi piye domaine? fix preconseling.com tha?yok i perlu ftp gak?perlu
+
+FTP user profile
+
+User：preconseling
+
+Password：preconseling
+
+Database user profile
+
+Database name：preconseling
+
+User：preconseling
+
+Password：preconseling
+
+cobaen mas kenek diakses gak
+
+wait tk coba, kenek ternyata aman? aman, cuma preconseling.com e sek gk kenek, kemungkinan domaine emng gk terdaftar
+op kudu enek acc ta? gk ngerti, ketok e iki cuma hosting, tpi gk enek proses create domain
+
+sek2 aku gk ngerti konsep e create domain ndk server iki wkwkk
+okok tak takokno

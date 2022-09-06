@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\File;
 
 class ProdukController extends Controller
 {
@@ -19,11 +20,10 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $kategori = KategoriProduk::orderBy('kategori','asc')->get();
-        $data = DB::table('produks')
-        ->join('kategori_produks','produks.kategori_id','kategori_produks.id')
+        $data = Produk::join('kategori_produks','produks.kategori_id','kategori_produks.id')
         ->select('kategori_produks.*','produks.*')
         ->orderBy('kategori','asc')->get();
+        $kategori = KategoriProduk::orderBy('kategori','asc')->get();
         Blade::directive('currency', function ( $expression ) { return "Rp. <?php echo number_format($expression,0,',','.'); ?>"; });
         // return $data;
         return view('admin.produk.index',compact('data','kategori'));
@@ -113,12 +113,24 @@ class ProdukController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $req = $request->all();
+        $req = [
+            'nama_produk'=>$request->nama_produk,
+            'harga'=>$request->harga,
+            'kandungan'=>$request->kandungan,
+            'stok'=>$request->stok,
+            'deskripsi'=>$request->deskripsi,
+            'status'=>$request->status,
+            'kategori_id'=>$request->kategori_id,
+            'status'=>$request->status,
+
+        ];
+        
 
         if($request->hasFile('foto1')){
             $tujuan_upload = public_path('admin/produk');
             $file = $request->file('foto1');
             $namaFile = Carbon::now()->format('Ymd') .$file->getClientOriginalName();
+            File::delete($tujuan_upload . '/' .Produk::find($id)->foto_produk);
             $file->move($tujuan_upload, $namaFile);
             $req['foto_produk'] = $namaFile;
       
@@ -128,6 +140,7 @@ class ProdukController extends Controller
             $tujuan_upload2 = public_path('admin/produk');
             $file2 = $request->file('foto2');
             $namaFile2 = Carbon::now()->format('Ymd') .$file2->getClientOriginalName();
+            File::delete($tujuan_upload2 . '/' .Produk::find($id)->foto_produk2);
             $file2->move($tujuan_upload2, $namaFile2);
             $req['foto_produk2'] = $namaFile2;
 
@@ -147,5 +160,16 @@ class ProdukController extends Controller
     public function destroy($id)
     {
         //
+        $tujuan_upload2 = public_path('admin/produk');
+        $del =Produk::where('id',$id)->first();
+        $del->delete();
+        // if($del){
+
+        //     // File::delete($tujuan_upload2.'/'.$del->foto_produk);
+        //     // File::delete($tujuan_upload2.'/'.$del->foto_produk2);
+            
+        // }
+
+        return redirect()->back()->with('message','Sukses menghapus produk');
     }
 }

@@ -15,59 +15,70 @@
                         <h3 class="text-center">Riwayat Pesanan</h3>
                     </div>
                     <hr>
-                    <form action="" method="post">
+                    <form action="{{url('user_upload_bukti_pembayaran',$kode_transaksi)}}" method="post"  enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-6">
                             <label class="h4">Produk</label>
                                 <div class="row">
                                     <div class="col-sm-3 text-center">
-                                        <img class="w-75" src="{{asset('public/image/icon/organic-product.png')}}"
+                                        <img class="w-75" src="{{asset('public/admin/produk/'.$fproduk->foto_produk)}}"
                                             alt="">
 
                                     </div>
                                     <div class="col-sm-3">
-                                        <p>produk 1</p>
-                                        <p>Kandungan</p>
-                                        <p>Jumlah Beli :</p>
-                                        <p>Harga :</p>
+                                    <p>{{$produk->nama_produk}}</p>
+                                        <!-- <p>Kandungan :{{$produk->nama_produk}}</p> -->
+                                        <p>Jumlah Beli :{{$produk->jumlah}}</p>
+                                        <p>Harga:@currency($produk->harga)</p>
 
                                     </div>
                                 </div>
 
                                 <div class="text-center">
-                                    <p>Total Harga :</p>
+                                <p>Total Harga :@currency($transaksi->total)</p>
                                 </div>
 
                                 <hr>
                                 <div>
                                 <label class="h4">Metode Pembayaran</label> <br>
                                     <div class="form-check form-check-inline">
-                                       <span>Transfer Bank</span> <br>
-                                       <span>Scan Qrcode</span>
+                                        @if($transaksi->metode_pembayaran=='Transfer Bank')
+                                        <span>Transfer Bank</span> <br>
+                                        @else
+                                        <span>Scan Qrcode</span>
+                                        @endif
+                                       
+                                  
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6">
+                            @if($transaksi->metode_pembayaran=='Scan Qrcode')
                             <label class="h4">Scan Qrcode</label>
                                 <div class="row">
                                     <div class="col-sm-12 text-center">
-                                        <img class="w-50" src="{{asset('public/image/icon/organic-product.png')}}"
+                                        <img class="w-50" src="{{asset('public/image/qris_ubki.jpeg')}}"
                                             alt="">
 
                                     </div>
                                     
                                 </div>
                                 <hr>
+                                @else
                                 <div>
-                                <label class="h4">Tranfer Bank</label> <br>
+                                <label class="h4">Tranfer Bank - A.N PT.UBK INTERNATIONAL</label> <br>
                                     <div class="form-check form-check-inline">
-                                       <span>Transfer ke Rekening <h2>12345</h2></span> <br>
+                                       <span>Transfer ke Rekening <h2>7999900792</h2></span> <br>
                                     </div>
-                                    <form action="" method="post">
+                                    @endif
+                                  
                                         <label for="">Upload Bukti Pembayaran</label>
-                                        <input type="file" class="form-control">
-                                    </form>
+                                        <input type="file" class="form-control" name="bukti_transaksi">
+                                   
                                 </div>
+                            
+                                       
                             </div>
                         </div>
                         <div class="mt-4 text-center">

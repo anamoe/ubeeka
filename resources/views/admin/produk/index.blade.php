@@ -37,7 +37,7 @@ Produk
                                         <a href="{{route('edit_produk',$v->id)}}" class="mr-2" data-placement="bottom"
                                             title="Edit"><span class="fa fa-pencil" style="color:black"></span></a>
                                         <a href="#" class="ml-1" data-toggle="modal" data-target="#DeleteModal"
-                                            data-placement="bottom" title="Hapus" onclick="">
+                                            data-placement="bottom" title="Hapus" onclick="deleteData('{{$v->id}}')">
                                             <span class="fa fa-trash" style="color:black"></span></a>
                                         <!-- <button>x</button> -->
                                     </div>
@@ -48,7 +48,7 @@ Produk
                                                 alt="" srcset="">
                                         </div>
                                         <h5 class="card-title">{{$v->nama_produk}}</h5>
-                                        <p class="card-text">{{$v->deskripsi}}</p>
+                                        <p class="card-text">Stok : {{$v->stok}}</p>
                                         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                                     </div>
                                     <div class="card-footer">
@@ -69,7 +69,7 @@ Produk
     <div id="DeleteModal" class="modal fade" role="dialog">
         <div class="modal-dialog ">
             <!-- Modal content-->
-            <form action="" id="deleteForm" method="post">
+            <form action="" id="deleteForm" method="get">
 
                 <div class="modal-content">
                     <div class="modal-header">
@@ -91,18 +91,18 @@ Produk
         </div>
     </div>
 
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
     function deleteData(id) {
         var id = id;
         var url = '';
         url = url.replace(':id', id);
-        $("#deleteForm").attr('action', url);
+        $("#deleteForm").attr('action', "{{url('hapus_produk')}}" + "/" + id);
     }
 
     function formSubmit() {
         $("#deleteForm").submit();
     }
 
-</script> -->
+</script>
 
     @endsection

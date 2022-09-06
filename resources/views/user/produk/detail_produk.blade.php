@@ -8,38 +8,28 @@
             <div class="owl-carousel header-carousel position-relative col-12 col-md-6">
                 <!-- <h3 class="d-inline-block d-sm-none">Produk 1</h3> -->
                 <div class="owl-carousel-item col-sm-12 position-relative" style="background: rgba(6, 3, 21, .5);">
-                    <img src="{{asset('public/image/icon/organic-product.png')}}" class="w-75 position-relative"
+                    <img src="{{asset('public/admin/produk/'.$data->foto_produk)}}" class="w-75 position-relative"
                         alt="Product Image">
                 </div>
                 <div class="owl-carousel-item col-sm-12 position-relative" style="background: rgba(6, 3, 21, .5);">
-                    <img class="w-75 position-relative" src="{{asset('public/image/icon/products_1.png')}}"
+                    <img class="w-75 position-relative" src="{{asset('public/admin/produk/'.$data->foto_produk2)}}"
                         alt="Product Image">
                 </div>
             </div>
             <div class="col-12 col-sm-6">
-                <h3 class="my-3">Produk 1</h3>
-                <p>Keterangan Kandungan</p>
+                <h3 class="my-3">{{$data->nama_produk}}</h3>
+                <p>{{$data->kandungan}}</p>
 
                 <hr>
                 <h5>Deskripsi</h5>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                    vitae condimentum erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                    cubilia Curae; Sed posuere, purus at efficitur hendrerit, augue elit lacinia arcu, a eleifend sem
-                    elit et nunc. Sed rutrum vestibulum est, sit amet cursus dolor fermentum vel. Suspendisse mi nibh,
-                    congue et ante et, commodo mattis lacus. Duis varius finibus purus sed venenatis. Vivamus varius
-                    metus quam, id dapibus velit mattis eu. Praesent et semper risus. Vestibulum erat erat, condimentum
-                    at elit at, bibendum placerat orci. Nullam gravida velit mauris, in pellentesque urna pellentesque
-                    viverra. Nullam non pellentesque justo, et ultricies neque. Praesent vel metus rutrum, tempus erat
-                    a, rutrum ante. Quisque interdum efficitur nunc vitae consectetur. Suspendisse venenatis, tortor non
-                    convallis interdum, urna mi molestie eros, vel tempor justo lacus ac justo. Fusce id enim a erat
-                    fringilla sollicitudin ultrices vel metus.
+                 {{$data->deskripsi}}
                 </p>
 
 
                 <div class="bg-gray py-2 px-3 mt-4">
                     <h4 class="mb-0">
-                        Rp. -,
+                    @currency($data->harga)
                     </h4>
                     <!-- <h4 class="mt-0">
                         <small>Ex Tax: $80.00 </small>
@@ -47,12 +37,12 @@
                 </div>
 
                 <div class="mt-4">
-                    <div class="btn btn-success btn-md btn-flat">
+                    <!-- <div class="btn btn-success btn-md btn-flat">
                         <i class="fas fa-cart-plus fa-lg mr-2"></i>
                         Tambah ke Keranjang
-                    </div>
+                    </div> -->
 
-                    <div class="btn btn-primary btn-md btn-flat" data-toggle="modal" data-target="#exampleModal">
+                    <div class="btn btn-primary btn-md btn-flat" data-toggle="modal" data-target="#exampleModal{{$data->id}}">
                         <!-- <i class="fas fa-heart fa-lg mr-2"></i> -->
                         Beli Sekarang
                     </div>
@@ -63,7 +53,8 @@
     <!-- /.card-body -->
 </div>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+
+<div class="modal fade" id="exampleModal{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -71,19 +62,27 @@
                 <h5 class="modal-title" id="exampleModalLabel">Beli Sekarang</h5>
             </div>
             <div class="modal-body">
+            <form action="{{route('user_buat_pesanan')}}" method="post" id="beliform" enctype="multipart/form-data">
+                    @csrf
                 <div class="row">
                     <div class="col-sm-3">
-                        <img class="w-100" src="{{asset('public/image/icon/organic-product.png')}}" alt="">
+                        <img class="w-100" src="{{asset('public/admin/produk/'.$data->foto_produk)}}" alt="">
 
                     </div>
                     <div class="col-sm-6">
-                        <p>produk 1</p>
-                        <p>Kandungan</p>
+                        <p>{{$data->nama_produk}}</p>
+                        <p>{{$data->kandungan}}</p>  
+                        <p>  @currency($data->harga)</p>
+
+                        <input type="text" hidden name="nama_produk" value="{{$data->nama_produk}}" >
+                        <input type="text" hidden name="harga_satuan" value="{{$data->harga}}" >
+                      
+                 
 
                     </div>
                 </div>
                 <div class="mt-2">
-                    Stok :
+                    Stok :{{$data->stok}}
                 </div>
                 <hr>
                 <div>
@@ -96,7 +95,7 @@
                                     <span class="glyphicon glyphicon-minus">-</span>
                                 </button>
                             </span>
-                            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1"
+                            <input type="text" id ="jumlah" name="quant[1]" class="form-control input-number" value="1" min="1"
                                 max="100">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus"
@@ -108,19 +107,30 @@
                         <p></p>
                     </div>
                 </div>
-                <h6>Harga</h6>
+                <h6>Total Harga</h6>
                 <div class="text-center">
-                    <input type="number" hidden name="harga" class="form-control" value="">
-                    <input type="number" disabled name="harga" class="form-control" value="">
+                   
+                    <input type="number" hidden id="harga"  class="form-control" value="{{$data->harga}}">
+                    <input type="text" hidden name="produk_id" class="form-control" value="{{$data->id}}">
+
+                    <input type="number" disabled id="harga2"  class="form-control" value="">
+                    <input type="number" hidden id="harga_post" name="harga_total" class="form-control" >
+
+                    <input type="text" hidden id ="jumlah_post" name="jumlah" class="form-control input-number" >
                 </div>
+                
+                </form>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                <a type="button" href="{{route('user_buat_pesanan')}}" class="btn btn-primary">Beli Sekarang</a>
+                <!-- <a type="button" href="" class="btn btn-primary">Beli Sekarang</a> -->
+                <button type="button" class="btn btn-primary" onclick="beli()">Beli Sekarang</button>
             </div>
         </div>
     </div>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
@@ -133,6 +143,12 @@
 </script>
 
 <script>
+
+function beli() {
+   
+            $("#beliform").submit()
+        
+    }
     $('.btn-number').click(function (e) {
         e.preventDefault();
 
@@ -140,11 +156,24 @@
         type = $(this).attr('data-type');
         var input = $("input[name='" + fieldName + "']");
         var currentVal = parseInt(input.val());
+
+        var jml=$('#jumlah').val();
+        var jlmt = parseInt(jml)+ 1;
+       
+        $('#jumlah_post').val(jlmt);
+        console.log($('#jumlah').val());
         if (!isNaN(currentVal)) {
+
+   
             if (type == 'minus') {
 
                 if (currentVal > input.attr('min')) {
                     input.val(currentVal - 1).change();
+                 
+                    var totalm=$('#jumlah').val()*$('#harga').val();
+                    console.log(totalm);
+                    $('#harga2').val(totalm);
+                    $('#harga_post').val(totalm);
                 }
                 if (parseInt(input.val()) == input.attr('min')) {
                     $(this).attr('disabled', true);
@@ -154,6 +183,12 @@
 
                 if (currentVal < input.attr('max')) {
                     input.val(currentVal + 1).change();
+
+                    var total=$('#jumlah').val()*$('#harga').val();
+                    console.log(total);
+
+                    $('#harga2').val(total);
+                    $('#harga_post').val(total);
                 }
                 if (parseInt(input.val()) == input.attr('max')) {
                     $(this).attr('disabled', true);

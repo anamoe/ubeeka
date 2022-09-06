@@ -73,6 +73,23 @@
 
     <!-- Template Javascript -->
     <script src="{{asset('public/landing_page/js/main.js')}}"></script>
+    <script src="{{asset('public/admin/assets/js/swal.js')}}"></script>  
+    
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        @if(session()->has('message'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: "{{session()->get('message')}}",
+        })
+        @endif
+
+
+    });
+    </script>
+
 </body>
 
 </html>

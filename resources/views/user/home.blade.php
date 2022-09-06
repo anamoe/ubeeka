@@ -150,26 +150,31 @@
         </div>
        
         <div class="row g-4">
+
+        @foreach($data as $v)
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="service-item p-4">
                     <div class="overflow-hidden mb-4 text-center">
-                        <img class="img-fluid w-50" src="{{asset('public/image/icon/organic-product.png')}}" alt="">
+                        <img class="img-fluid w-50" src="{{asset('public/admin/produk/'.$v->foto_produk)}}" alt="">
                     </div>
-                    <h4 class="mb-3">Produk 1</h4>
-                    <p>Produk bla bla</p>
-                    <a class="btn-slide mt-2" href="{{route('user_detail_produk')}}"><i class="fa fa-arrow-right"></i><span>Detail</span></a>
+                    <h4 class="mb-3">{{$v->nama_produk}}</h4>
+                    <p>{{$v->kandungan}}</p>
+                    <p>@currency($v->harga)</p>
+                    <a class="btn-slide mt-2" href="{{route('user_detail_produk',$v->id)}}"><i class="fa fa-arrow-right"></i><span>Detail</span></a>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+
+            @endforeach
+            <!-- <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="service-item p-4">
                     <div class="overflow-hidden mb-4 text-center">
-                        <img class="img-fluid w-50" src="{{asset('public/image/icon/products_1.png')}}" alt="">
+                        <img class="img-fluid w-50" src="{{asset('public/admin/produk'.$v->foto_produk)}}" alt="">
                     </div>
                     <h4 class="mb-3">Produk 2</h4>
                     <p>Penjelasan</p>
                     <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Detail</span></a>
                 </div>
-            </div>
+            </div> -->
             <div class="text-center wow fadeInUp" data-wow-delay="0.7s">
             <a class="btn btn-primary" href="#">Lihat Produk Lainnya</a>
         </div>
