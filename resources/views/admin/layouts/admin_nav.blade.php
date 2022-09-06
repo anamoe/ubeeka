@@ -25,6 +25,9 @@
                         
                     </ul>
                 </li>
+                <li class="{{ Request::segment(1) === 'logistik' ? 'active' : null }}">
+                    <a href="{{route('logistik')}}"> <i class="menu-icon fa fa-truck"></i>Logistik </a>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

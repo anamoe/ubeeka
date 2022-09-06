@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PesananController extends Controller
+class LogistikController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,17 +14,7 @@ class PesananController extends Controller
      */
     public function index()
     {
-        return view('admin.pesanan.index');
-    }
-
-    public function invoice()
-    {
-        return view('admin.pesanan.invoice');
-    }
-
-    public function atur_pengiriman()
-    {
-        return view('admin.pesanan.atur_pengiriman');
+        return view('admin.logistik.index');
     }
 
     /**

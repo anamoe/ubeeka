@@ -29,6 +29,8 @@ Route::post('/user_post_bayar/{kode_transaksi}', [App\Http\Controllers\User\Prod
 Route::get('/user_riwayat_pesanan/{kode_transaksi}', [App\Http\Controllers\User\ProdukController::class, 'user_riwayat_pesanan'])->name('user_riwayat_pesanan');
 Route::post('/user_upload_bukti_pembayaran/{kode_transaksi}', [App\Http\Controllers\User\ProdukController::class, 'upload_bukti_pembayaran'])->name('upload_bukti_pembayaran');
 
+Route::get('/user_keranjang', [App\Http\Controllers\User\ProdukController::class, 'user_keranjang'])->name('user_keranjang');
+
 //Admin
 Route::get('/admin_home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
 Route::get('/produk', [App\Http\Controllers\Admin\ProdukController::class, 'index'])->name('produk');
@@ -40,7 +42,9 @@ Route::get('/hapus_produk/{id}', [App\Http\Controllers\Admin\ProdukController::c
 
 Route::get('/pesanan_produk', [App\Http\Controllers\Admin\PesananController::class, 'index'])->name('pesanan_produk');
 Route::get('/invoice_produk', [App\Http\Controllers\Admin\PesananController::class, 'invoice'])->name('invoice_produk');
+Route::get('/atur_pengiriman_produk', [App\Http\Controllers\Admin\PesananController::class, 'atur_pengiriman'])->name('atur_pengiriman_produk');
 
+Route::get('/logistik', [App\Http\Controllers\Admin\LogistikController::class, 'index'])->name('logistik');
 
 //Admin Klinik
 Route::get('/admin_klinik_home', [App\Http\Controllers\AdminKlinik\HomeController::class, 'index'])->name('admin_klinik_home');

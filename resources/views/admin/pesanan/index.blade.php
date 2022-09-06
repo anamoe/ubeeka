@@ -54,6 +54,7 @@ Pesanan Produk
                         <div class="text-center mt-2">
                             <form action="" method="post">
                             <a class="btn rounded btn-primary" href="{{route('invoice_produk')}}">Terima</a>
+                            <a class="btn rounded btn-warning" href="{{route('atur_pengiriman_produk')}}">Atur Pengiriman</a>
                                 <!-- <button type="submit" class="btn rounded btn-primary" >Terima</button> -->
                                 <!-- <button type="submit" class="btn btn-success" >Kirim</button> -->
                             </form>
@@ -103,6 +104,7 @@ Pesanan Produk
                         <div class="text-center mt-2">
                             <form action="" method="post">
                                 <a class="btn rounded btn-primary" href="{{route('invoice_produk')}}">Terima</a>
+                                <a class="btn rounded btn-warning" href="{{route('atur_pengiriman_produk')}}">Atur Pengiriman</a>
                                 <!-- <button type="submit" class="btn rounded btn-primary" >Terima</button> -->
                                 <!-- <button type="submit" class="btn btn-success" >Kirim</button> -->
                             </form>

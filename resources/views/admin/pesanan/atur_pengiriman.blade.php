@@ -1,7 +1,7 @@
 @extends('admin.layouts.admin_master')
 
 @section('title')
-Invoice Produk
+Atur Pengiriman
 @endsection
 
 @section('content')
@@ -84,18 +84,7 @@ Invoice Produk
                     <!-- /.row -->
 
                     <div class="row">
-                        <!-- accepted payments column -->
-                        <div class="col-6">
-                            <p class="lead">Metode Pembayaran :</p>
-                            <h4>Transfer Bank</h4><br>
-                            <h4>Scan Qrcode</h4>
-                            <!-- <img src="../../dist/img/credit/visa.png" alt="Visa">
-                            <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-                            <img src="../../dist/img/credit/american-express.png" alt="American Express">
-                            <img src="../../dist/img/credit/paypal2.png" alt="Paypal"> -->
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-6">
+                    <div class="col-6">
                             <p class="lead">Dikirim Sebelum 2/22/2014</p>
 
                             <div class="table-responsive">
@@ -119,23 +108,50 @@ Invoice Produk
                                 </table>
                             </div>
                         </div>
+                        <!-- accepted payments column -->
+                        <div class="col-6">
+                            <p class="lead">Pengiriman :</p>
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <label for="">Petugas Pengirim</label>
+                                    <select class="form-control" name="petugas" id="petugas">
+                                        <option value="">--Pilih Petugas--</option>
+                                        <option value="">Petugas 1</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Kendaraan Pengiriman</label>
+                                    <select class="form-control" name="kendaraan" id="kendaraan">
+                                        <option value="">--Pilih Kendaraan Pengiriman--</option>
+                                        <option value="">Kendaraan 1</option>
+                                    </select>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn rounded btn-primary" type="submit">Simpan</button>
+                                </div>
+                            </form>
+                            
+                            <!-- <img src="../../dist/img/credit/visa.png" alt="Visa">
+                            <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
+                            <img src="../../dist/img/credit/american-express.png" alt="American Express">
+                            <img src="../../dist/img/credit/paypal2.png" alt="Paypal"> -->
+                        </div>
+                        <!-- /.col -->
+                        
                         <!-- /.col -->
                     </div>
                     <!-- /.row -->
 
                     <!-- this row will not appear when printing -->
-                    <div class="row no-print">
+                    <!-- <div class="row no-print">
                         <div class="col-12">
                             <a href="" rel="noopener" target="_blank" class="btn rounded btn-secondary"><i
                                     class="fa fa-print"></i> Print</a>
-                            <button type="button" class="btn rounded btn-success float-right"><i class="fa fa-save"></i>
-                                Simpan
-                            </button>
-                            <button type="button" class="btn rounded btn-primary float-right" style="margin-right: 5px;">
+                            <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
                                 <i class="fa fa-download"></i> Generate PDF
                             </button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- /.invoice -->
             </div>
