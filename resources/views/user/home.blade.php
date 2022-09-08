@@ -3,6 +3,45 @@
 @section('content')
 <div class="container-fluid p-0 pb-5">
     <div class="owl-carousel header-carousel position-relative mb-5">
+
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="{{asset('public/image/logistik1.jpeg')}}" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                style="background: rgba(6, 3, 21, .5);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8">
+                            <!-- <h5 class="text-white text-uppercase mb-3 animated slideInDown">Produk & Kesehatan
+                                Solution</h5> -->
+                            <h1 class="display-3 text-white animated slideInDown mb-4"> <span
+                                    class="text-primary">Logistik</span></h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2">Mengantar Paket Barang Pilihan Anda</p>
+                            <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                            <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free Quote</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="{{asset('public/image/logistik2.jpeg')}}" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                style="background: rgba(6, 3, 21, .5);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8">
+                            <!-- <h5 class="text-white text-uppercase mb-3 animated slideInDown">Logistik
+                                </h5> -->
+                            <!-- <h1 class="display-3 text-white animated slideInDown mb-4"><span class="text-primary">Logistik</span></h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2"></p> -->
+
+                            <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                            <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free Quote</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="owl-carousel-item position-relative">
             <img class="img-fluid" src="{{asset('public/image/produk_herbal1.jpg')}}" alt="">
             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
@@ -17,25 +56,6 @@
                             <p class="fs-5 fw-medium text-white mb-4 pb-2">Menyediakan Produk Herbal dan Konsultasi
                                 Kesehatan</p>
 
-                            <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                            <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free Quote</a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{asset('public/landing_page/img/carousel-2.jpg')}}" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(6, 3, 21, .5);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-10 col-lg-8">
-                            <!-- <h5 class="text-white text-uppercase mb-3 animated slideInDown">Produk & Kesehatan
-                                Solution</h5> -->
-                            <h1 class="display-3 text-white animated slideInDown mb-4"> <span
-                                    class="text-primary">Logistik</span></h1>
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2">Mengantar Barang Sampai Depan Rumah</p>
                             <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
                             <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free Quote</a> -->
                         </div>
@@ -102,34 +122,34 @@
                 <div class="row g-4 align-items-center">
                     <div class="col-sm-6">
                         <a href="#">
-                        <div class="bg-warning p-4 mb-4 wow fadeIn" data-wow-delay="0.3s">
-                            <i class="fa fa-user-md fa-2x text-white mb-3"></i>
-                            <h2 class="text-white mb-2" data-toggle="counter-up">4</h2>
-                            <p class="text-white mb-0">Dokter</p>
-                        </div>
+                            <div class="bg-warning p-4 mb-4 wow fadeIn" data-wow-delay="0.3s">
+                                <i class="fa fa-user-md fa-2x text-white mb-3"></i>
+                                <h2 class="text-white mb-2" data-toggle="counter-up">4</h2>
+                                <p class="text-white mb-0">Dokter</p>
+                            </div>
                         </a>
                         <a href="#">
-                        <div class="bg-secondary p-4 wow fadeIn" data-wow-delay="0.5s">
-                            <i class="fa fa-shopping-bag fa-2x text-white mb-3"></i>
-                            <h2 class="text-white mb-2" data-toggle="counter-up">20</h2>
-                            <p class="text-white mb-0">Produk</p>
-                        </div>
+                            <div class="bg-secondary p-4 wow fadeIn" data-wow-delay="0.5s">
+                                <i class="fa fa-shopping-bag fa-2x text-white mb-3"></i>
+                                <h2 class="text-white mb-2" data-toggle="counter-up">20</h2>
+                                <p class="text-white mb-0">Produk</p>
+                            </div>
                         </a>
                     </div>
                     <div class="col-sm-6">
                         <a href="#">
-                        <div class="bg-success p-4 mb-4 wow fadeIn" data-wow-delay="0.3s">
-                            <i class="fa fa-leaf fa-2x text-white mb-3"></i>
-                            <h2 class="text-white mb-2" data-toggle="counter-up">10</h2>
-                            <p class="text-white mb-0">Herbal</p>
-                        </div>
+                            <div class="bg-success p-4 mb-4 wow fadeIn" data-wow-delay="0.3s">
+                                <i class="fa fa-leaf fa-2x text-white mb-3"></i>
+                                <h2 class="text-white mb-2" data-toggle="counter-up">10</h2>
+                                <p class="text-white mb-0">Herbal</p>
+                            </div>
                         </a>
                         <a href="#">
-                        <div class="bg-primary p-4 wow fadeIn" data-wow-delay="0.5s">
-                            <i class="fa fa-truck fa-2x text-white mb-3"></i>
-                            <h2 class="text-white mb-2" data-toggle="counter-up">20</h2>
-                            <p class="text-white mb-0">Logistik</p>
-                        </div>
+                            <div class="bg-primary p-4 wow fadeIn" data-wow-delay="0.5s">
+                                <i class="fa fa-truck fa-2x text-white mb-3"></i>
+                                <h2 class="text-white mb-2" data-toggle="counter-up">20</h2>
+                                <p class="text-white mb-0">Logistik</p>
+                            </div>
                         </a>
 
                     </div>
@@ -148,10 +168,10 @@
             <h6 class="text-danger text-uppercase">Produk</h6>
             <h1 class="mb-5">Beberapa Produk Unggulan</h1>
         </div>
-       
+
         <div class="row g-4">
 
-        @foreach($data as $v)
+            @foreach($data as $v)
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="service-item p-4">
                     <div class="overflow-hidden mb-4 text-center">
@@ -160,7 +180,8 @@
                     <h4 class="mb-3">{{$v->nama_produk}}</h4>
                     <p>{{$v->kandungan}}</p>
                     <p>@currency($v->harga)</p>
-                    <a class="btn-slide mt-2" href="{{route('user_detail_produk',$v->id)}}"><i class="fa fa-arrow-right"></i><span>Detail</span></a>
+                    <a class="btn-slide mt-2" href="{{route('user_detail_produk',$v->id)}}"><i
+                            class="fa fa-arrow-right"></i><span>Detail</span></a>
                 </div>
             </div>
 
@@ -176,8 +197,8 @@
                 </div>
             </div> -->
             <div class="text-center wow fadeInUp" data-wow-delay="0.7s">
-            <a class="btn btn-primary" href="#">Lihat Produk Lainnya</a>
-        </div>
+                <a class="btn rounded-1 btn-primary" href="#">Lihat Produk Lainnya <i class="fa fa-arrow-right"></i></a>
+            </div>
         </div>
     </div>
 </div>
@@ -229,73 +250,111 @@
 
 
 <!-- Pricing Start -->
-<!-- <div class="container-xxl py-5">
+<div class="container-xxl py-5">
     <div class="container py-5">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="text-secondary text-uppercase">Pricing Plan</h6>
-            <h1 class="mb-5">Perfect Pricing Plan</h1>
+            <h6 class="text-primary text-uppercase">Paket Logistik</h6>
+            <h1 class="mb-5">Pilihan Paket Logistik</h1>
+        </div>
+        <div class="row mb-3">
+            <h5 class=" wow fadeInUp" data-wow-delay="0.3s">Cek Ongkos Kirim Logistik (/ton)</h5>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                <label for="">Dari</label>
+                <div class="form-group">
+                    <select class="form-control" name="" id="">
+                        <option value="">--Pilih Kota--</option>
+                        <option value="">2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                <label for="">Tujuan</label>
+                <div class="form-group">
+                    <select class="form-control" name="" id="">
+                        <option value="">--Pilih Kota--</option>
+                        <option value="">2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                <label for="">Ongkos Kirim (/ton)</label>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="biaya" id="biaya" hidden>
+                    <input type="text" class="form-control" disabled value="">
+                </div>
+            </div>
+
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="price-item">
                     <div class="border-bottom p-4 mb-4">
-                        <h5 class="text-primary mb-1">Basic Plan</h5>
+                        <h5 class="text-primary mb-1">Paket A</h5>
                         <h1 class="display-5 mb-0">
-                            <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>49.00<small
-                                class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Month</small>
+                            <small class="align-top"
+                                style="font-size: 22px; line-height: 45px;">Rp.</small>200.000<small
+                                class="align-bottom" style="font-size: 16px; line-height: 40px;"></small>
                         </h1>
                     </div>
                     <div class="p-4 pt-0">
-                        <p><i class="fa fa-check text-success me-3"></i>HTML5 & CSS3</p>
-                        <p><i class="fa fa-check text-success me-3"></i>Bootstrap v5</p>
-                        <p><i class="fa fa-check text-success me-3"></i>FontAwesome Icons</p>
-                        <p><i class="fa fa-check text-success me-3"></i>Responsive Layout</p>
-                        <p><i class="fa fa-check text-success me-3"></i>Cross-browser Support</p>
-                        <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Order Now</span></a>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada A</p>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada B</p>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada C</p>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada D</p>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada E</p>
+                        <a class="btn-slide mt-2" href="{{route('user_detail_paket_logistik')}}"><i
+                                class="fa fa-arrow-right"></i><span>Detail Paket</span></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="price-item">
                     <div class="border-bottom p-4 mb-4">
-                        <h5 class="text-primary mb-1">Standard Plan</h5>
+                        <h5 class="text-primary mb-1">Paket B</h5>
                         <h1 class="display-5 mb-0">
-                            <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>99.00<small
-                                class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Month</small>
+                            <small class="align-top"
+                                style="font-size: 22px; line-height: 45px;">Rp.</small>300.000<small
+                                class="align-bottom" style="font-size: 16px; line-height: 40px;"></small>
                         </h1>
                     </div>
                     <div class="p-4 pt-0">
-                        <p><i class="fa fa-check text-success me-3"></i>HTML5 & CSS3</p>
-                        <p><i class="fa fa-check text-success me-3"></i>Bootstrap v5</p>
-                        <p><i class="fa fa-check text-success me-3"></i>FontAwesome Icons</p>
-                        <p><i class="fa fa-check text-success me-3"></i>Responsive Layout</p>
-                        <p><i class="fa fa-check text-success me-3"></i>Cross-browser Support</p>
-                        <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Order Now</span></a>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada A</p>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada B</p>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada C</p>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada D</p>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada E</p>
+                        <a class="btn-slide mt-2" href="#"><i class="fa fa-arrow-right"></i><span>Detail
+                                Paket</span></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.7s">
                 <div class="price-item">
                     <div class="border-bottom p-4 mb-4">
-                        <h5 class="text-primary mb-1">Advanced Plan</h5>
+                        <h5 class="text-primary mb-1">Paket C</h5>
                         <h1 class="display-5 mb-0">
-                            <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>149.00<small
-                                class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Month</small>
+                            <small class="align-top"
+                                style="font-size: 22px; line-height: 45px;">Rp.</small>500.000<small
+                                class="align-bottom" style="font-size: 16px; line-height: 40px;"></small>
                         </h1>
                     </div>
                     <div class="p-4 pt-0">
-                        <p><i class="fa fa-check text-success me-3"></i>HTML5 & CSS3</p>
-                        <p><i class="fa fa-check text-success me-3"></i>Bootstrap v5</p>
-                        <p><i class="fa fa-check text-success me-3"></i>FontAwesome Icons</p>
-                        <p><i class="fa fa-check text-success me-3"></i>Responsive Layout</p>
-                        <p><i class="fa fa-check text-success me-3"></i>Cross-browser Support</p>
-                        <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Order Now</span></a>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada A</p>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada B</p>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada C</p>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada D</p>
+                        <p><i class="fa fa-check text-success me-3"></i>Ada E</p>
+                        <a class="btn-slide mt-2" href="#"><i class="fa fa-arrow-right"></i><span>Detail
+                                Paket</span></a>
                     </div>
                 </div>
             </div>
+            <div class="text-center wow fadeInUp" data-wow-delay="0.7s">
+                <a class="btn rounded-1 btn-primary" href="{{route('user_pilihan_paket_logistik')}}">Lihat Paket Lainnya <i class="fa fa-arrow-right"></i></a>
+            </div>
         </div>
     </div>
-</div> -->
+</div>
 <!-- Pricing End -->
 
 
@@ -395,7 +454,8 @@
             <div class="testimonial-item p-4 my-5">
                 <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
                 <div class="d-flex align-items-end mb-4">
-                    <img class="img-fluid flex-shrink-0" src="{{asset('public/image/dokter.jpg')}}" style="width: 80px; height: 80px;">
+                    <img class="img-fluid flex-shrink-0" src="{{asset('public/image/dokter.jpg')}}"
+                        style="width: 80px; height: 80px;">
                     <div class="ms-4">
                         <h5 class="mb-1">Pelanggan 1</h5>
                         <p class="m-0">Pekerjaan A</p>
@@ -406,7 +466,8 @@
             <div class="testimonial-item p-4 my-5">
                 <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
                 <div class="d-flex align-items-end mb-4">
-                    <img class="img-fluid flex-shrink-0" src="{{asset('public/image/dokter.jpg')}}" style="width: 80px; height: 80px;">
+                    <img class="img-fluid flex-shrink-0" src="{{asset('public/image/dokter.jpg')}}"
+                        style="width: 80px; height: 80px;">
                     <div class="ms-4">
                         <h5 class="mb-1">Pelanggan 3</h5>
                         <p class="m-0">Pekerjaan C</p>
@@ -417,7 +478,8 @@
             <div class="testimonial-item p-4 my-5">
                 <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
                 <div class="d-flex align-items-end mb-4">
-                    <img class="img-fluid flex-shrink-0" src="{{asset('public/image/dokter.jpg')}}" style="width: 80px; height: 80px;">
+                    <img class="img-fluid flex-shrink-0" src="{{asset('public/image/dokter.jpg')}}"
+                        style="width: 80px; height: 80px;">
                     <div class="ms-4">
                         <h5 class="mb-1">Pelanggan 2</h5>
                         <p class="m-0">Pekerjaan B</p>
@@ -425,7 +487,7 @@
                 </div>
                 <p class="mb-0">Dokter memberikan masukan yang baik</p>
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -497,18 +559,19 @@
 <!-- Quote End -->
 
 <script>
-        $(".header-carousel").owlCarousel({
+    $(".header-carousel").owlCarousel({
         autoplay: true,
         smartSpeed: 500,
         items: 1,
         dots: false,
         loop: true,
-        nav : true,
-        navText : [
+        nav: true,
+        navText: [
             '<i class="bi bi-chevron-left"></i>',
             '<i class="bi bi-chevron-right"></i>'
         ]
     });
-    </script>
+
+</script>
 
 @endsection

@@ -25,8 +25,14 @@
                         
                     </ul>
                 </li>
-                <li class="{{ Request::segment(1) === 'logistik' ? 'active' : null }}">
-                    <a href="{{route('logistik')}}"> <i class="menu-icon fa fa-truck"></i>Logistik </a>
+                <li class="menu-item-has-children dropdown {{ Request::segment(1) === 'data_paket_logistik' || 'pengiriman_paket_logistik' ? 'active' : null }}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"> <i class="menu-icon fa fa-truck"></i>Logistik</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-book"></i><a href="{{route('data_paket_logistik')}}">Data Paket</a></li>
+                        <li><i class="fa fa-truck"></i><a href="{{route('pengiriman_paket_logistik')}}">Pengiriman Paket</a></li>
+                        
+                    </ul>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->

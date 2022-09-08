@@ -1,7 +1,7 @@
 @extends('admin.layouts.admin_master')
 
 @section('title')
-Logistik
+Pengiriman Paket Logistik
 @endsection
 
 @section('content')
@@ -10,7 +10,13 @@ Logistik
     <div class="animated fadeIn">
         <div class="row">
             <div class="col-md-12">
-
+                <div class="card">
+                    <div class="card-header text-right">
+                        <a href="{{route('tambah_pengiriman_paket_logistik')}}" class="btn rounded btn-primary"><span
+                                class="fa fa-plus"></span>
+                            Tambah Pengiriman Paket</a>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -44,10 +50,10 @@ Logistik
                             </div>
                         </div>
                         <hr>
-                            <div class="col-md-12 mt-2 text-left ">
-                                <span>Petugas Pengirim : ...</span><br>
-                                <span>Kendaraan Pengirim : ...</span>
-                            </div>
+                        <div class="col-md-12 mt-2 text-left ">
+                            <span>Petugas Pengirim : ...</span><br>
+                            <span>Kendaraan Pengirim : ...</span>
+                        </div>
                         <div class="row">
                             <div class="col-md-6"></div>
                             <div class="col-md-6 mt-2 text-left ">
@@ -57,7 +63,7 @@ Logistik
                         </div>
                         <div class="text-center mt-2">
                             <form action="" method="post">
-                            <!-- <a class="btn rounded btn-primary" href="{{route('invoice_produk')}}">Terima</a> -->
+                                <!-- <a class="btn rounded btn-primary" href="{{route('invoice_produk')}}">Terima</a> -->
                                 <!-- <button type="submit" class="btn rounded btn-primary" >Terima</button> -->
                                 <!-- <button type="submit" class="btn btn-success" >Kirim</button> -->
                             </form>

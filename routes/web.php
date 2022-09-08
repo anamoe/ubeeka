@@ -30,6 +30,8 @@ Route::get('/user_riwayat_pesanan/{kode_transaksi}', [App\Http\Controllers\User\
 Route::post('/user_upload_bukti_pembayaran/{kode_transaksi}', [App\Http\Controllers\User\ProdukController::class, 'upload_bukti_pembayaran'])->name('upload_bukti_pembayaran');
 
 Route::get('/user_keranjang', [App\Http\Controllers\User\ProdukController::class, 'user_keranjang'])->name('user_keranjang');
+Route::get('/user_detail_paket_logistik', [App\Http\Controllers\User\LogistikController::class, 'user_detail_paket_logistik'])->name('user_detail_paket_logistik');
+Route::get('/user_pilihan_paket_logistik', [App\Http\Controllers\User\LogistikController::class, 'user_pilihan_paket_logistik'])->name('user_pilihan_paket_logistik');
 
 //Admin
 Route::get('/admin_home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
@@ -44,7 +46,12 @@ Route::get('/pesanan_produk', [App\Http\Controllers\Admin\PesananController::cla
 Route::get('/invoice_produk', [App\Http\Controllers\Admin\PesananController::class, 'invoice'])->name('invoice_produk');
 Route::get('/atur_pengiriman_produk', [App\Http\Controllers\Admin\PesananController::class, 'atur_pengiriman'])->name('atur_pengiriman_produk');
 
-Route::get('/logistik', [App\Http\Controllers\Admin\LogistikController::class, 'index'])->name('logistik');
+Route::get('/data_paket_logistik', [App\Http\Controllers\Admin\LogistikController::class, 'index_data_paket_logistik'])->name('data_paket_logistik');
+Route::get('/tambah_paket_logistik', [App\Http\Controllers\Admin\LogistikController::class, 'tambah_paket_logistik'])->name('tambah_paket_logistik');
+Route::get('/edit_paket_logistik', [App\Http\Controllers\Admin\LogistikController::class, 'edit_paket_logistik'])->name('edit_paket_logistik');
+
+Route::get('/pengiriman_paket_logistik', [App\Http\Controllers\Admin\LogistikController::class, 'index_pengiriman_paket_logistik'])->name('pengiriman_paket_logistik');
+Route::get('/tambah_pengiriman_paket_logistik', [App\Http\Controllers\Admin\LogistikController::class, 'tambah_pengiriman_paket_logistik'])->name('tambah_pengiriman_paket_logistik');
 
 //Admin Klinik
 Route::get('/admin_klinik_home', [App\Http\Controllers\AdminKlinik\HomeController::class, 'index'])->name('admin_klinik_home');

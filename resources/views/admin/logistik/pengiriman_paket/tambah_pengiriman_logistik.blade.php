@@ -1,7 +1,7 @@
 @extends('admin.layouts.admin_master')
 
 @section('title')
-Tambah Data Produk
+Tambah Pengiriman Paket Logistik
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@ Tambah Data Produk
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form action="{{url('simpan_produk')}}" method="POST" enctype="multipart/form-data">
+                        <form action="#" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 col-12">
@@ -38,11 +38,7 @@ Tambah Data Produk
                                         <select required type="text" class="form-control" name="kategori_id"
                                             id="kategori_id">
                                             <option value="" selected disabled>--Pilih Kategori--</option>
-                                            @foreach ($kategori as $v)
-                                            <option name="kategori_id" value="{{$v->id}}">{{ $v->kategori }}</option>
-                                            @endforeach
-
-
+                                            <option name="kategori_id" value=""></option>
                                         </select>
                                     </div>
                                 </div>
@@ -103,9 +99,10 @@ Tambah Data Produk
                                     </div>
                                 </div>
 
+
                                 <div class="col-12 d-flex justify-content-end">
-                                    <button type="submit" class="btn rounded btn-primary me-1 mb-1 mr-2">Simpan</button>
-                                    <a href="{{route('produk')}}" class="btn rounded btn-warning me-1 mb-1">Batal</a>
+                                <button type="submit" class="btn rounded btn-primary me-1 mb-1 mr-2">Simpan</button>
+                                    <a href="{{route('pengiriman_paket_logistik')}}" class="btn rounded btn-warning me-1 mb-1">Batal</a>
                                 </div>
                             </div>
                         </form>

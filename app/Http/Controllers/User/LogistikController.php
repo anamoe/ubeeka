@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,36 +14,17 @@ class LogistikController extends Controller
      */
     public function index()
     {
-        return view('admin.logistik.index');
+        //
     }
 
-
-    //Data Logistik
-    public function index_data_paket_logistik()
+    public function user_detail_paket_logistik()
     {
-        return view('admin.logistik.data_paket.index');
+        return view('user.logistik.detail_paket_logistik');
     }
 
-    public function tambah_paket_logistik()
+    public function user_pilihan_paket_logistik()
     {
-        return view('admin.logistik.data_paket.tambah_paket_logistik');
-    }
-
-    public function edit_paket_logistik()
-    {
-        return view('admin.logistik.data_paket.edit_paket_logistik');
-    }
-
-
-    // Pengiriman Logistik
-    public function index_pengiriman_paket_logistik()
-    {
-        return view('admin.logistik.pengiriman_paket.index');
-    }
-
-    public function tambah_pengiriman_paket_logistik()
-    {
-        return view('admin.logistik.pengiriman_paket.tambah_pengiriman_logistik');
+        return view('user.logistik.pilihan_paket_logistik');
     }
 
     /**
