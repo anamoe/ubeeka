@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Logistik;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Blade;
 
 class LogistikController extends Controller
 {
@@ -17,14 +19,19 @@ class LogistikController extends Controller
         //
     }
 
-    public function user_detail_paket_logistik()
+    public function user_detail_paket_logistik($id)
+
     {
-        return view('user.logistik.detail_paket_logistik');
+        $v = Logistik::where('id',$id)->first();
+        Blade::directive('currency', function ( $expression ) { return "Rp. <?php echo number_format($expression,0,',','.'); ?>"; });
+        return view('user.logistik.detail_paket_logistik',compact('v'));
     }
 
     public function user_pilihan_paket_logistik()
     {
-        return view('user.logistik.pilihan_paket_logistik');
+        $logistik = Logistik::all();
+        Blade::directive('currency', function ( $expression ) { return "Rp. <?php echo number_format($expression,0,',','.'); ?>"; });
+        return view('user.logistik.pilihan_paket_logistik',compact('logistik'));
     }
 
     /**

@@ -10,9 +10,14 @@ class Logistik extends Model
     use HasFactory;
     protected $fillable = [
         'paket',
-            'alamat' ,
-            'tujuan_kirim',
-            'biaya',
+        'alamat_asal',
+        'alamat_tujuan',
+        'tarif',
+        // 'muatan_ton'=>'1',
+        'muatan_kg',
+        'tepung_kg_rp',
+        'menir_sak_rp',
+        'menir'
 
     ];
 }

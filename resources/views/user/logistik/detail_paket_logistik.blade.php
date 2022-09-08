@@ -8,30 +8,30 @@
             <div class="owl-carousel header-carousel position-relative col-12 col-md-6">
                 <!-- <h3 class="d-inline-block d-sm-none">Produk 1</h3> -->
                 <div class="owl-carousel-item col-sm-12 position-relative" style="background: rgba(6, 3, 21, .5);">
-                    <img src="{{asset('public/image/icon/bag.png')}}" class="w-75 position-relative"
-                        alt="Product Image">
+                <img class="img-fluid" src="{{asset('public/image/logistik1.jpeg')}}" alt="">
                 </div>
                 <div class="owl-carousel-item col-sm-12 position-relative" style="background: rgba(6, 3, 21, .5);">
-                    <img class="w-75 position-relative" src="{{asset('public/image/icon/bag.png')}}"
-                        alt="Product Image">
+                <img class="img-fluid" src="{{asset('public/image/logistik1.jpeg')}}" alt="">
                 </div>
             </div>
             <div class="col-12 col-sm-6">
-                <h3 class="my-3">Nama Paket</h3>
-                <p>
-                    Isian
-                </p>
+                <h3 class="my-3">{{$v->paket}}</h3>
+                <p><i class="fa fa-check text-success me-3"></i>Dari {{$v->alamat_asal}} Ke {{$v->alamat_tujuan}}</p>
+                                        <p><i class="fa fa-check text-success me-3"></i>Muatan : @currency($v->muatan_kg)</p>
+                                        <p><i class="fa fa-check text-success me-3"></i>Tepung/kg Rp : @currency($v->tepung_kg_rp)</p>
+                                        <p><i class="fa fa-check text-success me-3"></i>Menir/sak Rp : @currency($v->menir_sak_rp)</p>
+                                        <p><i class="fa fa-check text-success me-3"></i>Menir : @currency($v->menir)</p>
 
                 <hr>
-                <h5>Deskripsi</h5>
+                <!-- <h5>Deskripsi</h5>
                 <p>
                  Deskripsi Lengkap
-                </p>
+                </p> -->
 
 
                 <div class="bg-gray py-2 px-3 mt-4">
                     <h4 class="mb-0">
-                    Harga Paket
+                    Harga Paket : @currency($v->tarif)
                     </h4>
                     <!-- <h4 class="mt-0">
                         <small>Ex Tax: $80.00 </small>
@@ -43,13 +43,14 @@
                         <i class="fas fa-cart-plus fa-lg mr-2"></i>
                         Tambah ke Keranjang
                     </div> -->
-                    <a href="#" class="btn btn-success rounded-1">
+                  
+                    <a href="https://wa.me/6282235434277?text=Halo admin saya mau beli paket logistik {{$v->paket}} Dari {{$v->alamat_asal}} Ke {{$v->alamat_tujuan}} dengan  Harga Paket : @currency($v->tarif) dengan layanan berikut : Muatan : @currency($v->muatan_kg), Tepung/kg Rp : @currency($v->tepung_kg_rp), Menir/sak Rp : @currency($v->menir_sak_rp), Menir : @currency($v->menir)." class="btn btn-success rounded-1">
                         <i class="fab fa-whatsapp fa-lg mr-2"></i>&nbsp;
                         Tanyakan Paket
                     </a>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
     <!-- /.card-body -->
 </div>

@@ -30,7 +30,7 @@ Route::get('/user_riwayat_pesanan/{kode_transaksi}', [App\Http\Controllers\User\
 Route::post('/user_upload_bukti_pembayaran/{kode_transaksi}', [App\Http\Controllers\User\ProdukController::class, 'upload_bukti_pembayaran'])->name('upload_bukti_pembayaran');
 
 Route::get('/user_keranjang', [App\Http\Controllers\User\ProdukController::class, 'user_keranjang'])->name('user_keranjang');
-Route::get('/user_detail_paket_logistik', [App\Http\Controllers\User\LogistikController::class, 'user_detail_paket_logistik'])->name('user_detail_paket_logistik');
+Route::get('/user_detail_paket_logistik/{id}', [App\Http\Controllers\User\LogistikController::class, 'user_detail_paket_logistik'])->name('user_detail_paket_logistik');
 Route::get('/user_pilihan_paket_logistik', [App\Http\Controllers\User\LogistikController::class, 'user_pilihan_paket_logistik'])->name('user_pilihan_paket_logistik');
 
 //Admin

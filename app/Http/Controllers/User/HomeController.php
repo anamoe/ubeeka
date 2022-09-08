@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\KategoriProduk;
+use App\Models\Logistik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\DB;
@@ -23,9 +24,10 @@ class HomeController extends Controller
         ->join('kategori_produks','produks.kategori_id','kategori_produks.id')
         ->select('kategori_produks.*','produks.*')
         ->orderBy('kategori','asc')->get();
+        $logistik = Logistik::all();
         Blade::directive('currency', function ( $expression ) { return "Rp. <?php echo number_format($expression,0,',','.'); ?>"; });
         // return $data;
-       return view('user.home',compact('data'));
+       return view('user.home',compact('data','logistik'));
     }
 
     /**
