@@ -458,7 +458,7 @@
     <div class="container py-5">
         <div class="row g-5 align-items-center">
             <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="text-secondary text-uppercase mb-3">Pertanyaan</h6>
+                <h6 class="text-primaty text-uppercase mb-3">Pertanyaan</h6>
                 <h1 class="mb-5">Apakah Ada Pertanyaan ?</h1>
                 <p class="mb-5">Tanyakan sesuatu kepada kami bila anda menemukan keraguan</p>
                 <div class="d-flex align-items-center">

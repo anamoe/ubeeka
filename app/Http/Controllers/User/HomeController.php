@@ -35,6 +35,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function tentang()
+    {
+        return view('user.tentang');
+    }
+
+    public function kontak()
+    {
+        return view('user.kontak');
+    }
+
     public function create()
     {
         //

@@ -22,6 +22,8 @@ Route::get('/register', [App\Http\Controllers\AuthController::class, 'register']
 
 //User
 Route::get('/user_home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('user_home');
+Route::get('/user_tentang', [App\Http\Controllers\User\HomeController::class, 'tentang'])->name('user_tentang');
+Route::get('/user_kontak', [App\Http\Controllers\User\HomeController::class, 'kontak'])->name('user_kontak');
 Route::get('/user_detail_produk/{id}', [App\Http\Controllers\User\ProdukController::class, 'detail_produk'])->name('user_detail_produk');
 Route::post('/user_buat_pesanan', [App\Http\Controllers\User\ProdukController::class, 'user_buat_pesanan'])->name('user_buat_pesanan');
 Route::get('/user_pemesanan/{kode_transaksi}', [App\Http\Controllers\User\ProdukController::class, 'user_pilih_metode_bayar'])->name('user_pilih_metode_bayar');
