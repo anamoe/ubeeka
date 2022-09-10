@@ -60,10 +60,10 @@
                                     </div>
                                     <div class="p-4 pt-0">
                                         <p><i class="fa fa-check text-success me-3"></i>Dari {{$v->alamat_asal}} Ke {{$v->alamat_tujuan}}</p>
-                                        <p><i class="fa fa-check text-success me-3"></i>Muatan : @currency($v->muatan_kg)</p>
-                                        <p><i class="fa fa-check text-success me-3"></i>Tepung/kg Rp : @currency($v->tepung_kg_rp)</p>
+                                        <p><i class="fa fa-check text-success me-3"></i>Muatan/kg : @currency($v->muatan_kg)</p>
+                                        <!-- <p><i class="fa fa-check text-success me-3"></i>Tepung/kg Rp : @currency($v->tepung_kg_rp)</p>
                                         <p><i class="fa fa-check text-success me-3"></i>Menir/sak Rp : @currency($v->menir_sak_rp)</p>
-                                        <p><i class="fa fa-check text-success me-3"></i>Menir : @currency($v->menir)</p>
+                                        <p><i class="fa fa-check text-success me-3"></i>Menir : @currency($v->menir)</p> -->
                                         <a class="btn-slide mt-2" href="{{url('user_detail_paket_logistik',$v->id)}}"><i
                                                 class="fa fa-arrow-right"></i><span>Detail Paket</span></a>
                                     </div>

@@ -17,7 +17,7 @@
             <div class="col-12 col-sm-6">
                 <h3 class="my-3">{{$v->paket}}</h3>
                 <p><i class="fa fa-check text-success me-3"></i>Dari {{$v->alamat_asal}} Ke {{$v->alamat_tujuan}}</p>
-                                        <p><i class="fa fa-check text-success me-3"></i>Muatan : @currency($v->muatan_kg)</p>
+                                        <p><i class="fa fa-check text-success me-3"></i>Muatan/kg : @currency($v->muatan_kg)</p>
                                         <p><i class="fa fa-check text-success me-3"></i>Tepung/kg Rp : @currency($v->tepung_kg_rp)</p>
                                         <p><i class="fa fa-check text-success me-3"></i>Menir/sak Rp : @currency($v->menir_sak_rp)</p>
                                         <p><i class="fa fa-check text-success me-3"></i>Menir : @currency($v->menir)</p>
