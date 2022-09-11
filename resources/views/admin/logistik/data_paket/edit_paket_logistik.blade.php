@@ -15,17 +15,24 @@ Edit Data Paket Logistik
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form action="#" method="POST" enctype="multipart/form-data">
+                        <form action="{{url('update_paket_logistik',$id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-4 col-12">
                                     <div class="form-group">
                                         <label for="first-name-column">Dari</label>
                                         <input required type="text" id="dari" class="form-control"
-                                            value="Jimbe" name="dari">
+                                            value="{{$logistik->dari}}" name="dari">
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-12">
+                                    <div class="form-group">
+                                        <label for="first-name-column">Ke</label>
+                                        <input required type="text" id="dari" class="form-control"
+                                            value="{{$logistik->ke}}" name="ke">
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-4 col-12">
                                     <div class="form-group">
                                         <label for="">Provinsi Tujuan</label>
                                         <select class="form-control" name="provinsi" id="provinsi">
@@ -42,11 +49,11 @@ Edit Data Paket Logistik
                                             <option value="">A</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-md-4 col-12">
                                     <div class="form-group">
-                                        <label for="harga">Tarif</label>
-                                        <input required type="number" id="harga" class="form-control" name="harga"
+                                        <label for="tarif">Tarif</label>
+                                        <input required type="number" id="tarif" class="form-control" name="tarif" value="{{$logistik->tarif}}"
                                             placeholder="Tarif">
                                     </div>
                                 </div>
@@ -55,32 +62,39 @@ Edit Data Paket Logistik
                                 <div class="col-md-4 col-12">
                                     <div class="form-group">
                                         <label for="muat">Muat (kg)</label>
-                                        <input required type="number" id="muat" class="form-control" name="muat"
+                                        <input required type="number" id="muat" class="form-control" name="muatan_kg" value="{{$logistik->muatan_kg}}"
                                             placeholder="Muat">
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-12">
                                     <div class="form-group">
                                         <label for="menir">Menir</label>
-                                        <input required type="number" id="menir" class="form-control" name="menir"
+                                        <input required type="number" id="menir" class="form-control" name="menir" value="{{$logistik->menir}}"
                                             placeholder="Menir">
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-12">
                                     <div class="form-group">
                                         <label for="rp_tepung">Rp/Kg Tepung</label>
-                                        <input required type="number" id="rp_tepung" class="form-control" name="rp_tepung"
+                                        <input required type="number" id="rp_tepung" class="form-control" name="tepung_kg_rp" value="{{$logistik->tepung_kg_rp}}"
                                             placeholder="Rp/Kg Tepung">
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-12">
                                     <div class="form-group">
                                         <label for="rp_menir">Rp/sak Menir</label>
-                                        <input required type="number" id="rp_menir" class="form-control" name="rp_menir"
+                                        <input required type="number" id="rp_menir" class="form-control" name="menir_sak_rp" value="{{$logistik->menir_sak_rp}}"
                                             placeholder="Rp/sak Menir">
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-12">
+                                    <div class="form-group">
+                                        <label for="first-name-column">Paket</label>
+                                        <input required type="text" id="paket" class="form-control" value="{{$logistik->paket}}"
+                                             name="paket">
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-4 col-12">
                                     <div class="form-group">
                                         <label for="status">Status</label> <br>
                                         <div class="form-check form-check-inline">
@@ -101,7 +115,7 @@ Edit Data Paket Logistik
                                         <label for="">Gambar</label>
                                         <input required class="form-control" type="file" name="foto1" id="foto1">
                                     </div>
-                                </div>
+                                </div> -->
                                 
                                 <!-- <div class="col-md-6 col-12">
                                     <div class="form-group">

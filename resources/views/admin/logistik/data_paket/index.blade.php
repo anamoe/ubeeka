@@ -28,11 +28,13 @@ Data Paket Logistik
                         </div>
 
                         <div class="row">
+
+                        @foreach($logistik as $v)
                            
                             <div class="col-sm-3">
                                 <div class="card">
                                     <div class="card-header text-right">
-                                        <a href="{{route('edit_paket_logistik')}}" class="mr-2" data-placement="bottom"
+                                        <a href="{{route('edit_paket_logistik',$v->id)}}" class="mr-2" data-placement="bottom"
                                             title="Edit"><span class="fa fa-pencil" style="color:black"></span></a>
                                         <a href="#" class="ml-1" data-toggle="modal" data-target="#DeleteModal"
                                             data-placement="bottom" title="Hapus" onclick="deleteData">
@@ -42,11 +44,11 @@ Data Paket Logistik
                                     <div class="divider"></div>
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img src="{{asset('public/image/icon/bag.png')}}" class="w-50"
+                                            <img src="{{asset('public/image/logistik.jpeg')}}" class="w-50"
                                                 alt="" srcset="">
                                         </div>
-                                        <h5 class="card-title">Nama Paket</h5>
-                                        <p class="card-text"></p>
+                                        <h6 class="card-title">Paket : {{$v->paket}}</h6>
+                                        <p class="card-text">{{$v->dari}} - {{$v->ke}}</p>
                                         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                                     </div>
                                     <div class="card-footer">
@@ -54,6 +56,7 @@ Data Paket Logistik
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

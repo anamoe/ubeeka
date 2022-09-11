@@ -16,7 +16,7 @@
                     </div>
                     <hr>
                     <div class="card-body">
-                        <div class="row mb-3">
+                        <!-- <div class="row mb-3">
                             <h5 class=" wow fadeInUp" data-wow-delay="0.3s">Cek Ongkos Kirim Logistik (/ton)</h5>
                             <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
                                 <label for="">Dari</label>
@@ -44,7 +44,7 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div> -->
                         <div class="row g-4">
                             @foreach($logistik as $v)
                             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">

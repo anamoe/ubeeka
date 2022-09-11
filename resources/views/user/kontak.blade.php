@@ -38,7 +38,7 @@
                 <div class="bg-light p-4">
                     <form>
                         <div class="row g-3">
-                            <div class="col-12 col-sm-6">
+                            <!-- <div class="col-12 col-sm-6">
                                 <input type="text" class="form-control border-0" placeholder="Nama Lengkap"
                                     style="height: 55px;">
                             </div>
@@ -52,9 +52,14 @@
                             </div>
                             <div class="col-12">
                                 <textarea class="form-control border-0" placeholder="Pertanyaan"></textarea>
-                            </div>
+                            </div> -->
                             <div class="col-12">
-                                <button class="btn rounded-1 btn-primary w-100 py-3" type="submit">Kirim</button>
+                                <!-- <button class="btn rounded-1 btn-primary w-100 py-3" type="submit">Kirim</button> -->
+                                
+                    <a href="https://wa.me/6282235434277?text=Halo admin saya mau kontak nih." class="btn btn-success rounded-1">
+                        <i class="fab fa-whatsapp fa-lg mr-2"></i>&nbsp;
+                        Konsultasi 
+                    </a>
                             </div>
                         </div>
                     </form>

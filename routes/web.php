@@ -50,10 +50,15 @@ Route::get('/atur_pengiriman_produk', [App\Http\Controllers\Admin\PesananControl
 
 Route::get('/data_paket_logistik', [App\Http\Controllers\Admin\LogistikController::class, 'index_data_paket_logistik'])->name('data_paket_logistik');
 Route::get('/tambah_paket_logistik', [App\Http\Controllers\Admin\LogistikController::class, 'tambah_paket_logistik'])->name('tambah_paket_logistik');
-Route::get('/edit_paket_logistik', [App\Http\Controllers\Admin\LogistikController::class, 'edit_paket_logistik'])->name('edit_paket_logistik');
+Route::get('/edit_paket_logistik/{id}', [App\Http\Controllers\Admin\LogistikController::class, 'edit_paket_logistik'])->name('edit_paket_logistik');
+Route::post('/update_paket_logistik/{id}', [App\Http\Controllers\Admin\LogistikController::class, 'update_paket_logistik'])->name('update_paket_logistik');
+
+Route::post('/tambah_paket_logistik', [App\Http\Controllers\Admin\LogistikController::class, 'tambah_paket_logistik_post'])->name('tambah_paket_logistik_post');
 
 Route::get('/pengiriman_paket_logistik', [App\Http\Controllers\Admin\LogistikController::class, 'index_pengiriman_paket_logistik'])->name('pengiriman_paket_logistik');
 Route::get('/tambah_pengiriman_paket_logistik', [App\Http\Controllers\Admin\LogistikController::class, 'tambah_pengiriman_paket_logistik'])->name('tambah_pengiriman_paket_logistik');
+
+Route::post('/tambah_pengiriman_paket_logistik_post', [App\Http\Controllers\Admin\LogistikController::class, 'tambah_pengiriman_paket_logistik_post'])->name('tambah_pengiriman_paket_logistik_post');
 
 //Admin Klinik
 Route::get('/admin_klinik_home', [App\Http\Controllers\AdminKlinik\HomeController::class, 'index'])->name('admin_klinik_home');

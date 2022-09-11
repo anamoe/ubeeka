@@ -17,8 +17,8 @@ class CreateLogistiksTable extends Migration
         Schema::create('logistiks', function (Blueprint $table) {
             $table->id();
             $table->string('paket');
-            $table->string('alamat_asal');
-            $table->string('alamat_tujuan');
+            $table->string('dari');
+            $table->string('ke');
             $table->string('tarif');
             // $table->string('muatan_ton')->nullable();
             $table->string('muatan_kg')->nullable();
@@ -33,8 +33,8 @@ class CreateLogistiksTable extends Migration
         });
         Logistik::create([
             'paket'=>'Trucking Franco',
-            'alamat_asal' =>'Jimbe',
-            'alamat_tujuan'=>'Banjanegara',
+            'dari' =>'Jimbe',
+            'ke'=>'Banjanegara',
             'tarif'=>'3125000',
             // 'muatan_ton'=>'1',
             'muatan_kg'=>'8000',
@@ -45,8 +45,8 @@ class CreateLogistiksTable extends Migration
         ]);
         Logistik::create([
             'paket'=>'Trucking Franco',
-            'alamat_asal' =>'Jimbe',
-            'alamat_tujuan'=>'Bangkalan',
+            'dari' =>'Jimbe',
+            'ke'=>'Bangkalan',
             'tarif'=>'1875000',
             // 'muatan_ton'=>'1',
             'muatan_kg'=>'8000',
@@ -58,8 +58,8 @@ class CreateLogistiksTable extends Migration
 
         Logistik::create([
             'paket'=>'Trucking Franco',
-            'alamat_asal' =>'Jimbe',
-            'alamat_tujuan'=>'Banyuwangi',
+            'dari' =>'Jimbe',
+            'ke'=>'Banyuwangi',
             'tarif'=>'2250000',
             // 'muatan_ton'=>'1',
             'muatan_kg'=>'8000',

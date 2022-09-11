@@ -24,7 +24,8 @@ class HomeController extends Controller
         ->join('kategori_produks','produks.kategori_id','kategori_produks.id')
         ->select('kategori_produks.*','produks.*')
         ->orderBy('kategori','asc')->get();
-        $logistik = Logistik::all();
+        $logistik = Logistik::take(3)->get();
+        // return $logistik;
         Blade::directive('currency', function ( $expression ) { return "Rp. <?php echo number_format($expression,0,',','.'); ?>"; });
         // return $data;
        return view('user.home',compact('data','logistik'));
