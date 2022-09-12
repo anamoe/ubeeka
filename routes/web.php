@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,35 @@ Route::resource('/',HomeController::class);
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
 Route::get('/register', [App\Http\Controllers\AuthController::class, 'register'])->name('register');
 
+Route::get('/login', function () {
+
+    if (auth()->check()) {
+        if(auth()->user()->role == "superadmin"){
+            return redirect('admin_home');
+        }elseif(auth()->user()->role == "pengunjung"){
+            return redirect('user_home');
+        }
+    } else {
+        return view('auth.login');
+    }
+})->name('login');
+
+Route::get('/register', function () {
+    if (auth()->check()) {
+        if(auth()->user()->role == "superadmin"){
+            return redirect('admin_home');
+        }elseif(auth()->user()->role == "pengunjung"){
+            return redirect('user_home');
+        }
+    } else {
+        return view('auth.register');
+    }
+})->name('register');
+
+Route::post('postlogin',[AuthController::class,'postlogin'])->name('postlogin');
+Route::post('postregister',[AuthController::class,'postregister'])->name('postregister');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
+
 
 //User
 Route::get('/user_home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('user_home');
@@ -36,7 +66,10 @@ Route::get('/user_detail_paket_logistik/{id}', [App\Http\Controllers\User\Logist
 Route::get('/user_pilihan_paket_logistik', [App\Http\Controllers\User\LogistikController::class, 'user_pilihan_paket_logistik'])->name('user_pilihan_paket_logistik');
 
 //Admin
-Route::get('/admin_home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
+
+Route::middleware(['middleware' => 'superadmin'])->group(function () {
+
+    Route::get('/admin_home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
 Route::get('/produk', [App\Http\Controllers\Admin\ProdukController::class, 'index'])->name('produk');
 Route::get('/tambah_produk', [App\Http\Controllers\Admin\ProdukController::class, 'create'])->name('tambah_produk');
 Route::get('/edit_produk/{id}', [App\Http\Controllers\Admin\ProdukController::class, 'editt'])->name('edit_produk');
@@ -59,6 +92,10 @@ Route::get('/pengiriman_paket_logistik', [App\Http\Controllers\Admin\LogistikCon
 Route::get('/tambah_pengiriman_paket_logistik', [App\Http\Controllers\Admin\LogistikController::class, 'tambah_pengiriman_paket_logistik'])->name('tambah_pengiriman_paket_logistik');
 
 Route::post('/tambah_pengiriman_paket_logistik_post', [App\Http\Controllers\Admin\LogistikController::class, 'tambah_pengiriman_paket_logistik_post'])->name('tambah_pengiriman_paket_logistik_post');
+
+
+
+});
 
 //Admin Klinik
 Route::get('/admin_klinik_home', [App\Http\Controllers\AdminKlinik\HomeController::class, 'index'])->name('admin_klinik_home');

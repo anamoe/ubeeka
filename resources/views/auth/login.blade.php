@@ -35,8 +35,17 @@
           <img src="{{asset('public/image/logo_ubeeka.jpeg')}}" class="img-fluid" alt="Phone image">
         </div>
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        @if(session()->has('error'))
+                                <div class="alert alert-danger" role="alert" id="notif">
+
+                                    <span data-notify="icon" class="fa fa-bell"></span>
+                                    <span data-notify="title">Gagal</span> <br>
+                                    <span data-notify="message">{{session()->get('error')}}</span>
+                                </div>
+                                @endif
             <h2 class="mb-2">Masuk ke <span style="color: #eb1207;">UBEEKA</span></h2>
-          <form>
+            <form  action="{{route('postlogin')}}" method="POST" enctype="multipart/form-data">
+              @csrf
             <!-- Email input -->
             <div class="form-outline mb-4">
               <input type="email" required id="form1Example13" name="email" id="email" class="form-control form-control-lg" />
@@ -91,76 +100,25 @@
   <script type="text/javascript" src="{{asset('public/login/js/mdb.min.js')}}"></script>
   <!-- Custom scripts -->
   <script type="text/javascript"></script>
+
+  <script src="{{asset('public/admin/assets/js/swal.js')}}"></script>  
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+    
+            @if(session()->has('message'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil',
+                text: "{{session()->get('message')}}",
+            })
+            @endif
+    
+    
+        });
+        </script>
 </body>
 
 </html>
 
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Material Design for Bootstrap</title>
-  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
-  <link rel="stylesheet" href="{{asset('public/login/css/bootstrap-login-form.min.css')}}" />
-</head>
-
-<body>
-  <section class="vh-100" style="background-color: #eee;">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-xl-10">
-          <div class="card" style="border-radius: 1rem;">
-            <div class="row g-0">
-              <div class="col-md-6 col-lg-5 d-none d-md-block" style="background-image: url('public/image/bg_gradient.jpg'); border-radius: 1rem 0 0 1rem;" >
-                <div>
-                    <span>Dapatkan Konsultasi Kesehatan, Produk Kesehatan, Produk Herbal</span> 
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                <div class="card-body p-4 p-lg-5 text-black">
-  
-                  <form>
-  
-                    <div class="d-flex align-items-center mb-3 pb-1">
-                    <img src="{{asset('public/image/logo_ubeeka.jpeg')}}" class="rounded-circle" width="100" height="auto" alt="...">
-                    </div>
-  
-                    <h4 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Masuk ke <span style="color: #fc4300;" class="h4 fw-bold mb-0">UBEEKA</span></h4>
-  
-                    <div class="form-outline mb-4">
-                      <input type="email" id="form2Example17" class="form-control form-control-lg" />
-                      <label class="form-label" for="form2Example17">Email address</label>
-                    </div>
-  
-                    <div class="form-outline mb-4">
-                      <input type="password" id="form2Example27" class="form-control form-control-lg" />
-                      <label class="form-label" for="form2Example27">Password</label>
-                    </div>
-  
-                    <div class="pt-1 mb-4">
-                      <button class="btn btn-warning btn-lg btn-block" type="button">Login</button>
-                    </div>
-  
-                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Belum Punya Akun? <a href="{{route('register')}}" style="color: #fc4300;">Daftar Disini</a></p>
-                  </form>
-  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script type="text/javascript" src="{{asset('public/login/js/mdb.min.js')}}"></script>
-  <script type="text/javascript"></script>
-</body>
-
-</html> -->

@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('no_hp',13);
+            $table->string('no_hp',13)->nullable();
             $table->string('no_ktp',16)->nullable();
-            $table->string('alamat',30);
+            $table->string('alamat',30)->nullable();
             $table->string('role',20);
             $table->rememberToken();
             $table->timestamps();
@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
         User::create([
             'name'=>'admin',
             'email'=>'admin@gmail.com',
-            'role'=>'admin',
+            'role'=>'superadmin',
             'password'=>bcrypt(123),
             'no_hp'=>'0812',
             'alamat'=>'bwi'
@@ -52,7 +52,7 @@ class CreateUsersTable extends Migration
         User::create([
             'name'=>'pengguna',
             'email'=>'pengguna@gmail.com',
-            'role'=>'pengguna',
+            'role'=>'pengunjung',
             'password'=>bcrypt(123),
             'no_hp'=>'0812',
             'alamat'=>'bwi'

@@ -3,7 +3,7 @@
     <div class="header-menu">
 
         <div class="col-sm-7">
-            <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+            <!-- <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
             <div class="header-left">
                 <button class="search-trigger"><i class="fa fa-search"></i></button>
                 <div class="form-inline">
@@ -78,7 +78,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="col-sm-5">
@@ -89,13 +89,13 @@
 
                 <div class="user-menu dropdown-menu">
                     <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
-
+<!-- 
                     <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span
-                            class="count">13</span></a>
+                            class="count">13</span></a> -->
 
-                    <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+                    <!-- <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a> -->
 
-                    <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                    <a class="nav-link" href="{{url('logout')}}"><i class="fa fa-power-off"></i> Logout</a>
                 </div>
             </div>
 
