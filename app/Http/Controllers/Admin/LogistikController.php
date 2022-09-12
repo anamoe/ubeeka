@@ -3,14 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Imports\LogistikImport;
 use App\Models\Kota;
 use App\Models\Logistik;
 use App\Models\PemesananLogistik;
 use App\Models\PemesananProduk;
 use App\Models\Provinsi;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class LogistikController extends Controller
 {
@@ -189,4 +194,69 @@ class LogistikController extends Controller
     {
         //
     }
+
+    public function fileImport(Request $request) 
+    {
+        $this->validate($request, [
+			'file' => 'required|mimes:csv,xls,xlsx'
+		]);
+ 
+		// menangkap file excel
+		$file = $request->file('file');
+        
+ 
+		// membuat nama file unik
+		$nama_file = rand().$file->getClientOriginalName();
+ 
+		// upload ke folder file_siswa di dalam folder public
+		$file->move('public/admin/file-excel-logistik',$nama_file);
+ 
+		// import data
+		Excel::import(new LogistikImport, public_path('admin/file-excel-logistik/'.$nama_file));
+ 
+		// notifikasi dengan session
+	
+ 
+		// alihkan halaman kembali
+		return redirect('/data_paket_logistik')->with('message','ok');
+    }
+
+
+    function importData(Request $request){
+        $this->validate($request, [
+            'file' => 'required|file|mimes:xls,xlsx'
+        ]);
+        $the_file = $request->file('file');
+        try{
+            $spreadsheet = IOFactory::load($the_file->getRealPath());
+            $sheet        = $spreadsheet->getActiveSheet();
+            $row_limit    = $sheet->getHighestDataRow();
+            $column_limit = $sheet->getHighestDataColumn();
+            $row_range    = range( 4, 41 );
+            $column_range = range( 'F', $column_limit );
+            $startcount = 0;
+            $data = array();
+            foreach ( $row_range as $row ) {
+                $data[] = [
+                    'dari' =>$sheet->getCell( 'B' . $row )->getValue(),
+                    'ke' => $sheet->getCell( 'C' . $row )->getValue(),
+                    'tarif' => $sheet->getCell( 'D' . $row )->getValue(),
+                    'muatan_kg' => $sheet->getCell( 'E' . $row )->getValue(),
+                    'menir' => $sheet->getCell( 'F' . $row )->getValue(),
+                    'tepung_kg_rp' =>$sheet->getCell( 'G' . $row )->getValue(),
+                    'menir_sak_rp' =>$sheet->getCell( 'H' . $row )->getValue(),
+                    'paket' =>$sheet->getCell( 'D'.'2')->getValue(),
+                ];
+                $startcount++;
+            }
+
+            return $data;
+            DB::table('logistiks')->insert($data);
+        } catch (Exception $e) {
+            $error_code = $e->errorInfo[1];
+            return back()->withErrors('There was a problem uploading the data!');
+        }
+        return back()->withSuccess('Great! Data has been successfully uploaded.');
+    }
+ 
 }

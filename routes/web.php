@@ -93,6 +93,8 @@ Route::get('/tambah_pengiriman_paket_logistik', [App\Http\Controllers\Admin\Logi
 
 Route::post('/tambah_pengiriman_paket_logistik_post', [App\Http\Controllers\Admin\LogistikController::class, 'tambah_pengiriman_paket_logistik_post'])->name('tambah_pengiriman_paket_logistik_post');
 
+Route::post('/file-import', [App\Http\Controllers\Admin\LogistikController::class, 'importData'])->name('file-import');
+
 
 
 });

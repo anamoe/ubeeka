@@ -11,9 +11,30 @@ Data Paket Logistik
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+<!-- 
+                    <form method="post" action="{{url('file-import')}}" enctype="multipart/form-data">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+                            </div>
+                            <div class="modal-body">
+
+                                {{ csrf_field() }}
+
+                                <label>Pilih file excel</label>
+                                <div class="form-group">
+                                    <input type="file" name="file" required="required">
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                           
+                                <button type="submit" class="btn btn-primary">Import</button>
+                            </div>
+                        </div>
+                    </form> -->
                     <div class="card-header text-right">
-                        <a href="{{route('tambah_paket_logistik')}}" class="btn rounded btn-primary"><span
-                                class="fa fa-plus"></span>
+                        <a href="{{route('tambah_paket_logistik')}}" class="btn rounded btn-primary"><span class="fa fa-plus"></span>
                             Tambah Data Paket</a>
                     </div>
                     <div class="card-body">
@@ -29,23 +50,20 @@ Data Paket Logistik
 
                         <div class="row">
 
-                        @foreach($logistik as $v)
-                           
+                            @foreach($logistik as $v)
+
                             <div class="col-sm-3">
                                 <div class="card">
                                     <div class="card-header text-right">
-                                        <a href="{{route('edit_paket_logistik',$v->id)}}" class="mr-2" data-placement="bottom"
-                                            title="Edit"><span class="fa fa-pencil" style="color:black"></span></a>
-                                        <a href="#" class="ml-1" data-toggle="modal" data-target="#DeleteModal"
-                                            data-placement="bottom" title="Hapus" onclick="deleteData">
+                                        <a href="{{route('edit_paket_logistik',$v->id)}}" class="mr-2" data-placement="bottom" title="Edit"><span class="fa fa-pencil" style="color:black"></span></a>
+                                        <a href="#" class="ml-1" data-toggle="modal" data-target="#DeleteModal" data-placement="bottom" title="Hapus" onclick="deleteData">
                                             <span class="fa fa-trash" style="color:black"></span></a>
                                         <!-- <button>x</button> -->
                                     </div>
                                     <div class="divider"></div>
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img src="{{asset('public/image/logistik.jpeg')}}" class="w-50"
-                                                alt="" srcset="">
+                                            <img src="{{asset('public/image/logistik.jpeg')}}" class="w-50" alt="" srcset="">
                                         </div>
                                         <h6 class="card-title">Paket : {{$v->paket}}</h6>
                                         <p class="card-text">{{$v->dari}} - {{$v->ke}}</p>
@@ -81,8 +99,7 @@ Data Paket Logistik
                         {{ method_field('POST') }}
                         <p>Apakah anda yakin ingin Menghapus data ini ?</p>
                         <!-- <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Batal</button> -->
-                        <button type="submit" name="" class="btn btn-danger float-right mr-2" data-dismiss="modal"
-                            onclick="formSubmit()">Hapus</button>
+                        <button type="submit" name="" class="btn btn-danger float-right mr-2" data-dismiss="modal" onclick="formSubmit()">Hapus</button>
                     </div>
                 </div>
             </form>
@@ -90,18 +107,17 @@ Data Paket Logistik
     </div>
 
     <script type="text/javascript">
-    function deleteData(id) {
-        var id = id;
-        var url = '';
-        url = url.replace(':id', id);
-        $("#deleteForm").attr('action', "{{url('hapus_produk')}}" + "/" + id);
-    }
+        function deleteData(id) {
+            var id = id;
+            var url = '';
+            url = url.replace(':id', id);
+            $("#deleteForm").attr('action', "{{url('hapus_produk')}}" + "/" + id);
+        }
 
-    function formSubmit() {
-        $("#deleteForm").submit();
-    }
-
-</script>
+        function formSubmit() {
+            $("#deleteForm").submit();
+        }
+    </script>
 
 
     @endsection
