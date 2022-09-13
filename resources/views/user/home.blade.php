@@ -4,8 +4,10 @@
 <div class="container-fluid p-0 pb-5">
     <div class="owl-carousel header-carousel position-relative mb-5">
 
+
+    @foreach($s as $v)
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{asset('public/image/logistik1.jpeg')}}" alt="">
+            <img class="img-fluid" src="{{asset('public/admin/slideshow/'.$v->gambar)}}" alt="">
             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
                 style="background: rgba(6, 3, 21, .5);">
                 <div class="container">
@@ -14,8 +16,8 @@
                             <!-- <h5 class="text-white text-uppercase mb-3 animated slideInDown">Produk & Kesehatan
                                 Solution</h5> -->
                             <h1 class="display-3 text-white animated slideInDown mb-4"> <span
-                                    class="text-primary">Logistik</span></h1>
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2">Mengantar Paket Barang Pilihan Anda</p>
+                                    class="text-primary">{{$v->keterangan}}</span></h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2">{{$v->keterangan2}}</p>
                             <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
                             <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free Quote</a> -->
                         </div>
@@ -23,46 +25,10 @@
                 </div>
             </div>
         </div>
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{asset('public/image/logistik2.jpeg')}}" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(6, 3, 21, .5);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-10 col-lg-8">
-                            <!-- <h5 class="text-white text-uppercase mb-3 animated slideInDown">Logistik
-                                </h5> -->
-                            <!-- <h1 class="display-3 text-white animated slideInDown mb-4"><span class="text-primary">Logistik</span></h1>
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2"></p> -->
 
-                            <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                            <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free Quote</a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{asset('public/image/produk_herbal1.jpg')}}" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(6, 3, 21, .5);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-10 col-lg-8">
-                            <!-- <h5 class="text-white text-uppercase mb-3 animated slideInDown">Logistik
-                                </h5> -->
-                            <h1 class="display-3 text-white animated slideInDown mb-4"><span class="text-primary">Produk
-                                    dan Kesehatan</span></h1>
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2">Menyediakan Produk Herbal dan Konsultasi
-                                Kesehatan</p>
-
-                            <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                            <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free Quote</a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
+       
+      
     </div>
 </div>
 <!-- Carousel End -->

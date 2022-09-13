@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SettingLandingPageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -96,6 +97,8 @@ Route::post('/tambah_pengiriman_paket_logistik_post', [App\Http\Controllers\Admi
 Route::post('/file-import', [App\Http\Controllers\Admin\LogistikController::class, 'importData'])->name('file-import');
 
 Route::get('/setting_courosel', [App\Http\Controllers\Admin\SettingLandingPageController::class, 'courosel'])->name('setting_courosel');
+Route::get('/hapus-slideshow/{id}', [App\Http\Controllers\Admin\SettingLandingPageController::class, 'destroys'])->name('setting_courosels');
+Route::resource('slideshow',SettingLandingPageController::class);
 
 
 });

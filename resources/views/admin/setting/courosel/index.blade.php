@@ -18,28 +18,32 @@ Setting Courosel
                     </div>
                     <div class="card-body">
                         <div class="row">
+                            @foreach($s as $v)
                             <div class="col-sm-4">
                                 <div class="card">
                                     <div class="card-header text-right">
-                                        <a href="#" class="mr-2" data-toggle="modal" data-target="#EditModal"
-                                            data-placement="bottom" title="Edit" onclick="deleteData">
+                                        <a href="#" class="mr-2" data-toggle="modal" data-target="#EditModal{{$v->id}}"
+                                            data-placement="bottom" title="Edit" onclick="editData">
                                             <span class="fa fa-pencil" style="color:black"></span></a>
                                         <a href="#" class="ml-1" data-toggle="modal" data-target="#DeleteModal"
-                                            data-placement="bottom" title="Hapus" onclick="deleteData">
+                                            data-placement="bottom" title="Hapus" onclick="deleteData('{{$v->id}}')">
                                             <span class="fa fa-trash" style="color:black"></span></a>
                                         <!-- <button>x</button> -->
                                     </div>
+
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img src="{{asset('public/image/logistik1.jpeg')}}" class="w-75" alt=""
+                                            <img src="{{asset('public/admin/slideshow/'.$v->gambar)}}" class="w-75" alt=""
                                                 srcset="">
                                         </div><br>
-                                        <h6 class="card-title">Gambar : 1</h6>
-                                        <p class="card-text">Keterangan 1</p>
-                                        <p class="card-text">Keterangan 2</p>
+                                        <!-- <h6 class="card-title">Gambar : 1</h6> -->
+                                        <p class="card-text">{{$v->keterangan}}</p>
+                                        <p class="card-text">{{$v->keterangan2}}</p>
+                                        <!-- <p class="card-text">Keterangan 2</p> -->
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -47,6 +51,7 @@ Setting Courosel
         </div>
     </div>
 </div>
+
 
 <!-- Modal Tambah-->
 <div class="modal fade" id="TambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -60,19 +65,20 @@ Setting Courosel
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="post">
+                <form action="{{url('slideshow')}}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
                         <label for="">Gambar</label>
                         <input class="form-control" type="file" name="gambar" id="gambar" placeholder="Gambar">
                     </div>
                     <div class="form-group">
-                        <label for="">Keterangan 1</label>
-                        <input class="form-control" type="text" name="keterangan_1" id="keterangan_1"
+                        <label for="">Keterangan</label>
+                        <input class="form-control" type="text" name="keterangan" id="keterangan"
                             placeholder="Keterangan 1">
                     </div>
                     <div class="form-group">
                         <label for="">Keterangan 2</label>
-                        <input class="form-control" type="text" name="keterangan_2" id="keterangan_2"
+                        <input class="form-control" type="text" name="keterangan2" id="keterangan2"
                             placeholder="Keterangan 2">
                     </div>
             </div>
@@ -87,7 +93,7 @@ Setting Courosel
 </div>
 
 <!-- Modal Edit-->
-<div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="EditModal{{$v->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -98,19 +104,21 @@ Setting Courosel
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="post">
+            <form action="{{url('slideshow',$v->id)}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('patch')
                     <div class="form-group">
                         <label for="">Gambar</label>
-                        <input class="form-control" type="file" name="gambar" id="gambar" placeholder="Gambar">
+                        <input class="form-control" type="file" name="gambar" id="gambar" placeholder="Gambar" value="{{$v->gambar}}">
                     </div>
                     <div class="form-group">
-                        <label for="">Keterangan 1</label>
-                        <input class="form-control" type="text" name="keterangan_1" id="keterangan_1"
+                        <label for="">Keterangan</label>
+                        <input class="form-control" type="text" name="keterangan" id="keterangan" value="{{$v->keterangan}}"
                             placeholder="Keterangan 1">
                     </div>
                     <div class="form-group">
                         <label for="">Keterangan 2</label>
-                        <input class="form-control" type="text" name="keterangan_2" id="keterangan_2"
+                        <input class="form-control" type="text" name="keterangan2" id="keterangan2"value="{{$v->keterangan2}}"
                             placeholder="Keterangan 2">
                     </div>
             </div>
@@ -129,6 +137,7 @@ Setting Courosel
     <div class="modal-dialog ">
         <!-- Modal content-->
         <form action="" id="deleteForm" method="get">
+            <!-- @method('delete') -->
 
             <div class="modal-content">
                 <div class="modal-header">
@@ -155,6 +164,7 @@ Setting Courosel
         var id = id;
         var url = '';
         url = url.replace(':id', id);
+        $("#deleteForm").attr('action', "{{url('hapus-slideshow')}}" + "/" + id);
     }
 
     function formSubmit() {

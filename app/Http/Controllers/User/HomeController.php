@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\KategoriProduk;
 use App\Models\Logistik;
+use App\Models\Slideshow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\DB;
@@ -18,6 +19,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $s = Slideshow::all();
         
         $kategori = KategoriProduk::orderBy('kategori','asc')->get();
         $data = DB::table('produks')
@@ -28,7 +30,7 @@ class HomeController extends Controller
         // return $logistik;
         Blade::directive('currency', function ( $expression ) { return "Rp. <?php echo number_format($expression,0,',','.'); ?>"; });
         // return $data;
-       return view('user.home',compact('data','logistik'));
+       return view('user.home',compact('data','logistik','s'));
     }
 
     /**
