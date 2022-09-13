@@ -34,6 +34,15 @@
                         
                     </ul>
                 </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"> <i class="menu-icon fa fa-gear"></i>Setting Landing Page</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-gear"></i><a href="{{route('setting_courosel')}}">Courosel</a></li>
+                        <!-- <li><i class="fa fa-gear"></i><a href="{{route('pengiriman_paket_logistik')}}"></a></li> -->
+                        
+                    </ul>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

@@ -27,15 +27,15 @@ Pengiriman Paket Logistik
                                 <!-- <span>Nomor Telepon/HP :</span><br>
                                 <span>Alamat :</span> -->
                                 <span>Bukti KTP Pemesan</span><br>
-                               
-                                        <img src="{{asset('public/admin/bukti_ktp_pemesan_logistik/'.$v->foto_ktp)}}" width="150" alt=""
-                                            srcset="">
-                                    
+
+                                <img src="{{asset('public/admin/bukti_ktp_pemesan_logistik/'.$v->foto_ktp)}}"
+                                    width="150" alt="" srcset="">
+
                             </div>
                             <div class="col-md-7">
                                 <div calss="row">
                                     <div class="col-md-6">
-                                    <span>Tepung Kg/rp :</span><br>
+                                        <span>Tepung Kg/rp :</span><br>
                                         <span>Jumlah : {{$v->jml_rp_tepung}}</span><br>
                                         <span>Total Harga : @currency($v->total_rp_tepung)</span><br>
                                     </div>
@@ -44,20 +44,20 @@ Pengiriman Paket Logistik
                                         <span>Jumlah : {{$v->jml_menirs}}</span><br>
                                         <span>Total Harga :@currency($v->total_menir)</span><br>
                                     </div>
-                                    
+
                                     <div class="col-md-6">
-                                    <span>Menir Sak/Kg</span><br>
+                                        <span>Menir Sak/Kg</span><br>
                                         <span>Jumlah : {{$v->jml_rp_menir}}</span><br>
                                         <span>Total Harga : @currency($v->total_rp_menir)</span><br>
                                     </div>
                                     <div class="col-md-6">
-                                    <span>Muatan</span><br>
+                                        <span>Muatan</span><br>
                                         <span>Jumlah : {{$v->jml_muat}}</span><br>
                                         <span>Total Harga : @currency($v->total_muat)</span><br>
-                                        
+
                                     </div>
 
-                                  
+
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@ Pengiriman Paket Logistik
                         <div class="row">
                             <div class="col-md-6"></div>
                             <div class="col-md-6 mt-2 text-left ">
-                                Total Harga :  @currency($v->total)<br>
+                                Total Harga : @currency($v->total)<br>
                                 <!-- Status Pengiriman : <span class="badge badge-warning">Sedang Dikirim</span> -->
                             </div>
                         </div>
@@ -86,7 +86,7 @@ Pengiriman Paket Logistik
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->
+</div>
 
 
-
-    @endsection
+@endsection

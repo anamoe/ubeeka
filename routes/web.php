@@ -69,7 +69,7 @@ Route::get('/user_pilihan_paket_logistik', [App\Http\Controllers\User\LogistikCo
 
 Route::middleware(['middleware' => 'superadmin'])->group(function () {
 
-    Route::get('/admin_home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
+Route::get('/admin_home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
 Route::get('/produk', [App\Http\Controllers\Admin\ProdukController::class, 'index'])->name('produk');
 Route::get('/tambah_produk', [App\Http\Controllers\Admin\ProdukController::class, 'create'])->name('tambah_produk');
 Route::get('/edit_produk/{id}', [App\Http\Controllers\Admin\ProdukController::class, 'editt'])->name('edit_produk');
@@ -95,6 +95,7 @@ Route::post('/tambah_pengiriman_paket_logistik_post', [App\Http\Controllers\Admi
 
 Route::post('/file-import', [App\Http\Controllers\Admin\LogistikController::class, 'importData'])->name('file-import');
 
+Route::get('/setting_courosel', [App\Http\Controllers\Admin\SettingLandingPageController::class, 'courosel'])->name('setting_courosel');
 
 
 });

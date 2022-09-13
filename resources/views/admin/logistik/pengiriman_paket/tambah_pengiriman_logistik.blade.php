@@ -27,7 +27,7 @@ Tambah Pengiriman Paket Logistik
                                     </div>
                                 </div>
 
-                                <div class="col-md-4 col-12">
+                                <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="harga">Tarif</label>
                                         <input required type="number" id="tarif" class="form-control" name="tarif"
