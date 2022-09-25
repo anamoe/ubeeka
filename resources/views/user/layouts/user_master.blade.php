@@ -29,6 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('public/landing_page/css/style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('public/admin/assets/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/admin/assets/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
     <!-- CSS only -->
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
 </head>
@@ -76,6 +78,7 @@
     <!-- Template Javascript -->
     <script src="{{asset('public/landing_page/js/main.js')}}"></script>
     <script src="{{asset('public/admin/assets/js/swal.js')}}"></script>  
+    <script src="{{asset('public/admin/assets/select2/js/select2.full.min.js')}}"></script>
     
 <script type="text/javascript">
     $(document).ready(function() {
@@ -91,6 +94,20 @@
 
     });
     </script>
+        <script>
+        $(".select2").select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+
+       
+
+    </script>
+           
+   
+   @yield('js')
    
 
 </body>

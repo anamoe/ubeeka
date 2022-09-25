@@ -3,9 +3,9 @@
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Alamat</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Jalan AA, BB, CC</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Tulungagung Jawa Timur Indonesia</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+62 8223 543 4277</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>ubeeka.international@gmail.com</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>

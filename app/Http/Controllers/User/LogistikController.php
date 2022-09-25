@@ -27,11 +27,80 @@ class LogistikController extends Controller
         return view('user.logistik.detail_paket_logistik',compact('v'));
     }
 
-    public function user_pilihan_paket_logistik()
+    public function user_pilihan_paket_logistik(Request $request)
     {
-        $logistik = Logistik::all();
+
+        $dari = $request->dari;
+        $ke = $request->ke;
+  
+
+        if($dari!=null &&$ke!=null){
+
+            $logistik = Logistik::where('dari',$dari)->where('ke',$ke)->get();
+      
+
+        }else if($dari!=null){
+            $logistik = Logistik::where('dari',$dari)->get();
+            
+            
+
+        }else if($ke!=null){
+            $logistik = Logistik::where('ke',$ke)->get();
+           
+            
+        }else{
+
+            $logistik = Logistik::get();
+           
+
+        }
+        if($request->has('dari')&&$request->has('ke')){
+            return $logistik;
+        }
+           if($request->has('ke')){
+            return $logistik;
+        }
+
+        if($request->has('dari')){
+            return $logistik;
+        }
+        // $logistik = Logistik::orderBy('paket','asc')->get();
+        $dari = Logistik::orderBy('dari','asc')->get();
+        $ke = Logistik::orderBy('ke','asc')->get();
+
         Blade::directive('currency', function ( $expression ) { return "Rp. <?php echo number_format($expression,0,',','.'); ?>"; });
-        return view('user.logistik.pilihan_paket_logistik',compact('logistik'));
+        return view('user.logistik.pilihan_paket_logistik',compact('logistik','dari','ke'));
+    }
+
+    public function filterlogistik(Request $request){
+
+        $dari = $request->dari;
+        $ke = $request->ke;
+  
+
+        if($dari!=null &&$ke!=null){
+
+            $logistik = Logistik::where('dari',$dari)->where('ke',$ke)->get();
+      
+
+        }else if($dari!=null){
+            $logistik = Logistik::where('dari',$dari)->get();
+            
+            
+
+        }else if($ke!=null){
+            $logistik = Logistik::where('ke',$ke)->get();
+           
+            
+        }else{
+
+            $logistik = Logistik::get();
+           
+
+        }
+           if($request->has('ke')){
+            return $logistik;
+        }
     }
 
     /**
